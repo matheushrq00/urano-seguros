@@ -1,0 +1,11 @@
+.heroWrap {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 21 / 9;
+  min-height: 450px; /* evita o “pulo” no refresh */
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: rgba(0, 0, 0, 0.06);
+}

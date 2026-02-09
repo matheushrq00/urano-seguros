@@ -1,0 +1,25 @@
+{
+  "name": "urano-site-com-paginas",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.95.3",
+    "next": "^14.2.35",
+    "nodemailer": "^8.0.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "25.2.1",
+    "@types/nodemailer": "^7.0.9",
+    "@types/react": "19.2.13",
+    "typescript": "5.9.3"
+  }
+}
