@@ -3,24 +3,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const fallbackTestimonials = [
-  {
-    name: "Danila Fernanda de Souza",
-    text: "Excelente, o corretor é atencioso, o processo foi simples e rápido.",
-  },
+  { name: "Danila Fernanda de Souza", text: "Excelente, o corretor é atencioso, o processo foi simples e rápido." },
   { name: "Maurício Maquetas", text: "Boa prestação de serviço!! Grato" },
-  {
-    name: "Eziel Ferreira",
-    text: "Fiz meu seguro com eles e nunca tive problemas, recomendo a Urano Seguros",
-  },
-  {
-    name: "Marcel Hailer",
-    text: "Bom atendimento, profissionalismo, rapidez e agilidade. Recomendo a todos!",
-  },
+  { name: "Eziel Ferreira", text: "Fiz meu seguro com eles e nunca tive problemas, recomendo a Urano Seguros" },
+  { name: "Marcel Hailer", text: "Bom atendimento, profissionalismo, rapidez e agilidade. Recomendo a todos!" },
   { name: "Matheus Ossame", text: "Super atenciosos" },
-  {
-    name: "Guilherme Trevisol",
-    text: "Sou cliente há anos e só consigo pensar em elogios a Urano Seguros. Sinto-me completamente assegurado!",
-  },
+  { name: "Guilherme Trevisol", text: "Sou cliente há anos e só consigo pensar em elogios a Urano Seguros. Sinto-me completamente assegurado!" },
   { name: "Raphael Henrique", text: "Bons planos e ótimas recomendações" },
 ];
 
@@ -34,8 +22,8 @@ type ApiReview = {
 };
 
 type ApiPlace = {
-  id?: string;
-  name?: string;
+  id?: string | null;
+  name?: string | null;
   rating?: number | null;
   userRatingCount?: number | null;
   mapsUrl?: string | null;
@@ -66,41 +54,48 @@ function Stars({ value = 5 }: { value?: number }) {
 
 export default function Testimonials() {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const [paused, setPaused] = useState(false);
 
+  const [paused, setPaused] = useState(false);
   const [googleReviews, setGoogleReviews] = useState<ApiReview[] | null>(null);
+  useEffect(() => {
+  console.log("reviews state:", googleReviews);
+}, [googleReviews]);
+
   const [place, setPlace] = useState<ApiPlace | null>(null);
 
-  // Carrega reviews reais (sem quebrar caso falhe)
+  console.log("reviews state:", googleReviews);
+
+  // 🔥 Carrega reviews reais
   useEffect(() => {
-    let alive = true;
+  let alive = true;
 
-    // ✅ Deixa o cache trabalhar (sua API já está cacheada via revalidate)
-    fetch("/api/google-reviews")
-      .then((r) => r.json())
-      .then((data: ApiResponse) => {
-        if (!alive) return;
+  fetch("/api/google-reviews", { cache: "no-store" })
+    .then((r) => r.json())
+    .then((data: any) => {
+      console.log("API /api/google-reviews:", data);
 
-        if (data && (data as any).ok && Array.isArray((data as any).reviews)) {
-          const okData = data as { ok: true; reviews: ApiReview[]; place?: ApiPlace };
+      if (!alive) return;
 
-          // place (nota média + total + link maps)
-          if (okData.place) setPlace(okData.place);
+      console.log("API /api/google-reviews:", data);
 
-          // reviews
-          const cleaned = (okData.reviews || [])
-            .filter((x) => (x?.text || "").trim().length > 0)
-            .slice(0, 8);
+      if (data?.ok && Array.isArray(data.reviews)) {
+        const cleaned = data.reviews
+          .filter((x: any) => (x?.text || "").trim().length > 0)
+          .slice(0, 8);
 
-          if (cleaned.length > 0) setGoogleReviews(cleaned);
-        }
-      })
-      .catch(() => {});
+        console.log("cleaned reviews:", cleaned.length);
 
-    return () => {
-      alive = false;
-    };
-  }, []);
+        if (cleaned.length > 0) setGoogleReviews(cleaned);
+        if (data.place) setPlace(data.place);
+      }
+    })
+    .catch((err) => console.log("Erro fetch reviews:", err));
+
+  return () => {
+    alive = false;
+  };
+}, []);
+
 
   const items = useMemo(() => {
     if (googleReviews && googleReviews.length > 0) {
@@ -111,7 +106,6 @@ export default function Testimonials() {
         photoUrl: r.photoUrl,
         when: r.when,
         authorUrl: r.authorUrl,
-        source: "google" as const,
       }));
     }
 
@@ -122,7 +116,6 @@ export default function Testimonials() {
       photoUrl: null as string | null,
       when: "",
       authorUrl: null as string | null,
-      source: "fallback" as const,
     }));
   }, [googleReviews]);
 
@@ -143,7 +136,7 @@ export default function Testimonials() {
     });
   }
 
-  // Autoplay leve (respeita prefers-reduced-motion)
+  // Autoplay leve
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
@@ -165,17 +158,13 @@ export default function Testimonials() {
       } else {
         el.scrollBy({ left: j, behavior: "smooth" });
       }
-    }, 12000);
+    }, 6500);
 
     return () => window.clearInterval(id);
   }, [paused]);
 
-  const placeRating =
-    typeof place?.rating === "number" ? place.rating : null;
-
-  const placeCount =
-    typeof place?.userRatingCount === "number" ? place.userRatingCount : null;
-
+  const placeRating = place?.rating ?? null;
+  const placeCount = place?.userRatingCount ?? null;
   const placeMapsUrl =
     place?.mapsUrl ||
     "https://www.google.com/search?q=Urano+Seguros+avalia%C3%A7%C3%B5es";
@@ -186,31 +175,35 @@ export default function Testimonials() {
         <div>
           <h2 className="testimonialsTitle">Depoimentos</h2>
           <p className="testimonialsSub">
+            
             Avaliações reais de clientes — atendimento humanizado e rápido.
           </p>
 
+          <div style={{ fontSize: 12, opacity: 0.7 }}>
+  debug: reviews={googleReviews ? googleReviews.length : "null"} | place={place ? "ok" : "null"}
+</div>
+
+
           {/* ✅ Média + total + botão */}
-{typeof placeRating === "number" && typeof placeCount === "number" && (
-  <div className="tSummaryRow">
-    <div className="tSummary">
-      <span className="tSummaryStar">★</span>
-      <strong>{placeRating.toFixed(1)}</strong>
-      <span className="tSummarySep">•</span>
-      <span>{placeCount} avaliações no Google</span>
-    </div>
+          {placeRating && placeCount ? (
+            <div className="tSummaryRow">
+              <div className="tSummary">
+                <span className="tSummaryStar">★</span>
+                <strong>{placeRating.toFixed(1)}</strong>
+                <span className="tSummarySep">•</span>
+                <span>{placeCount} avaliações no Google</span>
+              </div>
 
               <a
                 className="tGoogleLink"
                 href={placeMapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Ver todas as avaliações no Google"
               >
                 Ver todas no Google
               </a>
             </div>
-            )}
-
+          ) : null}
         </div>
 
         <div className="tArrows" aria-label="Controles do carrossel">
@@ -252,7 +245,6 @@ export default function Testimonials() {
             <article key={`${t.name}-${idx}`} className="tCard tSlide">
               <div className="tTop">
                 <div className="tAvatar" aria-hidden="true">
-                  {/* ✅ Sempre renderiza as iniciais como fallback, mas controladas via CSS */}
                   {t.photoUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -262,29 +254,26 @@ export default function Testimonials() {
                       loading="lazy"
                       referrerPolicy="no-referrer"
                       onError={(e) => {
-                        // Se falhar, esconde a imagem e deixa aparecer as iniciais
                         e.currentTarget.style.display = "none";
-                        e.currentTarget.dataset.failed = "1";
                       }}
                     />
-                  ) : null}
-
+                  ) : (
+                    <span>{initials(t.name)}</span>
+                  )}
+                  {/* iniciais podem aparecer por trás se a imagem falhar */}
                   <span className="tAvatarInitials">{initials(t.name)}</span>
                 </div>
 
                 <div className="tMeta">
                   <div className="tName">{t.name}</div>
-                  <Stars value={t.rating} />
+                  <Stars value={t.rating ?? 5} />
                   {t.when ? <div className="tWhen">{t.when}</div> : null}
                 </div>
 
                 <a
                   className="tBadge"
                   title="Avaliação do Google"
-                  href={
-                    t.authorUrl ||
-                    "https://www.google.com/search?q=Urano+Seguros+avalia%C3%A7%C3%B5es"
-                  }
+                  href={t.authorUrl || placeMapsUrl}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -298,9 +287,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="tHint">
-        Dica: arraste para o lado no celular para ver mais depoimentos.
-      </div>
+      <div className="tHint">Dica: arraste para o lado no celular para ver mais depoimentos.</div>
     </div>
   );
 }

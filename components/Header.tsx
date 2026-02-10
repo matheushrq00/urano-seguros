@@ -14,7 +14,7 @@ export default function Header() {
           {/* Redes sociais (esquerda) */}
           <div className="socials" aria-label="Redes sociais">
             <a
-              href="https://www.instagram.com/SEU_INSTAGRAM"
+              href="https://www.instagram.com/uranoseguros"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
@@ -48,7 +48,7 @@ export default function Header() {
             </a>
 
             <a
-              href="https://www.facebook.com/SUA_PAGINA"
+              href="https://www.facebook.com/uranoseguros"
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
