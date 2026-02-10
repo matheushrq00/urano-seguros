@@ -21,28 +21,28 @@ export default function Hero() {
         title: "Seguro Auto completo",
         text: "Proteção total para o seu veículo, com assistência 24h e as melhores seguradoras do mercado.",
         tags: ["✓ Roubo e furto", "✓ Colisão", "✓ Danos a terceiros"],
-        primaryHref: "/contato",
-        primaryLabel: "Cotar agora",
+        primaryHref: WHATSAPP_LINK,
+        primaryLabel: "Cotar no WhatsApp",
         secondaryHref: "/seguro-auto",
         secondaryLabel: "Saiba mais",
         note: "Sem compromisso • Atendimento rápido",
       },
       {
         title: "Planos de Saúde ideais para você",
-        text: "Conte com a Urano Seguros para proteção e qualidade de vida. Opções para pessoa física, família e empresas.",
+        text: "Opções para pessoa física, família e empresas, com rede credenciada e custo-benefício.",
         tags: ["✓ Coberturas completas", "✓ Rede credenciada", "✓ Custo-benefício"],
-        primaryHref: "/contato",
-        primaryLabel: "Cotar agora",
+        primaryHref: WHATSAPP_LINK,
+        primaryLabel: "Cotar no WhatsApp",
         secondaryHref: "/planos-de-saude",
         secondaryLabel: "Saiba mais",
         note: "Compare planos e valores",
       },
       {
         title: "Consórcios",
-        text: "Conquiste seus objetivos com consórcios planejados para você. Parcelas acessíveis e planejamento inteligente.",
+        text: "Parcelas acessíveis e planejamento inteligente para auto e imóvel. Sem juros, sem entrada.",
         tags: ["✓ Auto", "✓ Imobiliário", "✓ Planejamento"],
-        primaryHref: "/contato",
-        primaryLabel: "Cotar agora",
+        primaryHref: WHATSAPP_LINK,
+        primaryLabel: "Simular no WhatsApp",
         secondaryHref: "/consorcio",
         secondaryLabel: "Saiba mais",
         note: "Sem juros • Planejamento inteligente",
@@ -54,17 +54,15 @@ export default function Hero() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  // ✅ AUTOPLAY ESTÁVEL
   useEffect(() => {
-  if (paused) return;
+    if (paused) return;
 
-  const id = window.setInterval(() => {
-    setActive((i) => (i + 1) % slides.length);
-  }, 4000);
+    const id = window.setInterval(() => {
+      setActive((i) => (i + 1) % slides.length);
+    }, 4000);
 
-  return () => window.clearInterval(id);
-}, [paused, slides.length]);
-
+    return () => window.clearInterval(id);
+  }, [paused, slides.length]);
 
   function goTo(i: number) {
     setActive((prev) => {
@@ -74,21 +72,33 @@ export default function Hero() {
     });
   }
 
+  // Mensagem pronta (melhora conversão)
+  function buildHeroWhatsText() {
+    const s = slides[active];
+    const lines = [
+      "Olá! Vim pelo site da Urano Seguros 🙂",
+      `Quero cotar: ${s.title}`,
+      "",
+      "Pode me ajudar?",
+    ];
+    return encodeURIComponent(lines.join("\n"));
+  }
+
   return (
     <section className="hero">
       <div className="container heroGrid">
         {/* SLIDER */}
         <div
-  className="slider"
-  aria-label="Destaques"
-  onMouseEnter={() => setPaused(true)}
-  onMouseLeave={() => setPaused(false)}
-  onPointerDown={() => setPaused(true)}
-  onPointerUp={() => setPaused(false)}
-  onPointerCancel={() => setPaused(false)}
-  onTouchStart={() => setPaused(true)}
-  onTouchEnd={() => setPaused(false)}
->
+          className="slider"
+          aria-label="Destaques"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onPointerDown={() => setPaused(true)}
+          onPointerUp={() => setPaused(false)}
+          onPointerCancel={() => setPaused(false)}
+          onTouchStart={() => setPaused(true)}
+          onTouchEnd={() => setPaused(false)}
+        >
           {/* TOPO: DOTS + SETAS */}
           <div className="sliderTop">
             <div className="sliderDots">
@@ -103,8 +113,12 @@ export default function Hero() {
             </div>
 
             <div className="sliderArrows">
-              <button className="arrow" onClick={() => goTo(active - 1)}>‹</button>
-              <button className="arrow" onClick={() => goTo(active + 1)}>›</button>
+              <button className="arrow" onClick={() => goTo(active - 1)}>
+                ‹
+              </button>
+              <button className="arrow" onClick={() => goTo(active + 1)}>
+                ›
+              </button>
             </div>
           </div>
 
@@ -126,12 +140,19 @@ export default function Hero() {
                   </div>
 
                   <div className="slideCtas">
-                    <a className="btnPrimary" href={s.primaryHref}>
+                    <a
+                      className="btnPrimary"
+                      href={`${s.primaryHref}&text=${buildHeroWhatsText()}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       {s.primaryLabel}
                     </a>
+
                     <a className="btnGhost" href={s.secondaryHref}>
                       {s.secondaryLabel}
                     </a>
+
                     <span className="ctaNote">🔒 {s.note}</span>
                   </div>
                 </div>
@@ -140,29 +161,43 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* CARD LATERAL */}
+        {/* PROVA SOCIAL (no lugar do "Contato") */}
         <aside className="infoCard">
-          <h3>Contato</h3>
+          <h3>Clientes recomendam</h3>
 
-          <div>
-            <div className="infoLabel">WhatsApp</div>
-            <div className="infoValue">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
-                {DISPLAY_PHONE}
-              </a>
+          <div className="proofRow">
+            <div className="proofStars" aria-label="Avaliação 4,9 de 5">
+              ★★★★★
+            </div>
+            <div className="proofMeta">
+              <strong>4,9</strong> • <span>17 avaliações no Google</span>
             </div>
           </div>
 
-          <div>
-            <div className="infoLabel">Local</div>
-            <div className="infoValue">
-              Limeira/SP - Cotamos para todo o BRASIL
-            </div>
+          <div className="proofPills">
+            <span className="tag">Atendimento humanizado</span>
+            <span className="tag">Cotação rápida</span>
+            <span className="tag">100% digital</span>
           </div>
 
-          <a className="infoBtn" href="/contato">
-            Formulário de Contato
+          <div className="proofQuote">
+            “Processo simples e rápido. Atendimento excelente.”
+          </div>
+
+          <a
+            className="infoBtn"
+            href={`${WHATSAPP_LINK}&text=${buildHeroWhatsText()}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Falar no WhatsApp
           </a>
+
+          <div className="proofSmall">
+            WhatsApp: <strong>{DISPLAY_PHONE}</strong>
+            <br />
+            Limeira/SP • Cotamos todo Brasil
+          </div>
         </aside>
       </div>
     </section>

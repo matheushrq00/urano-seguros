@@ -1,11 +1,22 @@
 .heroWrap {
   position: relative;
   width: 100%;
-  max-width: 900px;
-  aspect-ratio: 21 / 9;
-  min-height: 450px; /* evita o “pulo” no refresh */
-  border-radius: 16px;
+  max-width: none;
+
+  /* 👇 CONTROLE REAL DA ALTURA */
+  height: 240px;
+
+  border-radius: 18px;
   overflow: hidden;
-  margin-bottom: 16px;
-  background: rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+  background: #f6f6f6;
 }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .heroWrap {
+    height: 220px;
+    border-radius: 16px;
+  }
+}
+

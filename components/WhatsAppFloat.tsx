@@ -1,12 +1,37 @@
-import { WHATSAPP_LINK } from "./constants";
+'use client'
+
+import { WHATSAPP_LINK } from './constants'
+
+function WhatsAppIcon({ size = 34 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        fill="white"
+        d="M20.52 3.48A11.86 11.86 0 0012.06 0C5.5 0 .16 5.33.16 11.9c0 2.1.55 4.16 1.6 5.98L0 24l6.32-1.65a11.86 11.86 0 005.74 1.46h.01c6.57 0 11.9-5.33 11.9-11.9 0-3.18-1.24-6.17-3.45-8.43zM12.06 21.5h-.01a9.86 9.86 0 01-5.02-1.37l-.36-.22-3.75.98 1-3.65-.24-.37a9.86 9.86 0 01-1.52-5.28c0-5.44 4.43-9.87 9.9-9.87a9.83 9.83 0 016.98 2.9 9.83 9.83 0 012.9 6.97c0 5.46-4.43 9.91-9.88 9.91zm5.44-7.4c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.08-.3-.15-1.25-.46-2.39-1.47-.88-.78-1.47-1.74-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.64-.93-2.25-.24-.58-.48-.5-.68-.5h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5s1.07 2.9 1.22 3.1c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.5 1.69.64.71.23 1.35.2 1.86.12.56-.08 1.78-.73 2.03-1.4.25-.68.25-1.26.18-1.4-.08-.13-.28-.2-.58-.35z"
+      />
+    </svg>
+  )
+}
+
 
 export default function WhatsAppFloat() {
   return (
     <div className="waFloat">
-      <a className="waBtn" href={WHATSAPP_LINK} target="_blank" rel="noreferrer" aria-label="WhatsApp Urano Seguros">
-        <span className="waIcon">📲</span>
-        <span>Chamar no WhatsApp</span>
+      <a
+        className="waBtn"
+        href={WHATSAPP_LINK}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Falar com a Urano Seguros no WhatsApp"
+      >
+        <WhatsAppIcon size={34} />
       </a>
     </div>
-  );
+  )
 }

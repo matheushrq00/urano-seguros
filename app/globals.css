@@ -11,7 +11,7 @@
 html,body{height:100%}
 body{margin:0;font-family:Arial, Helvetica, sans-serif;background:var(--bg);color:var(--black)}
 a{color:inherit;text-decoration:none}
-.container{max-width:1120px;margin:0 auto;padding:0 16px}
+.container{max-width:1750px;margin:0 auto;padding:0 16px}
 .section{padding:42px 0}
 
 /* Top strip */
@@ -90,7 +90,18 @@ small{color:var(--muted);font-weight:600}
 
 /* WhatsApp floating */
 .waFloat{position:fixed;right:18px;bottom:18px;z-index:120}
-.waBtn{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:999px;background:#22c55e;color:#0b0b0b;font-weight:1000;box-shadow:0 14px 28px rgba(0,0,0,.22);border:2px solid rgba(0,0,0,.10);animation:waPulse 1s infinite}
+.waBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;              /* flex é melhor pra SVG */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
 .waIcon{width:22px;height:22px;border-radius:6px;background:rgba(0,0,0,.12);display:grid;place-items:center;font-weight:1000}
 @keyframes waPulse{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.05);filter:brightness(1.18)}}
 
@@ -579,10 +590,16 @@ small{color:var(--muted);font-weight:600}
   display: none;
 }
 
-.section--tight {
-  padding-top: 16px;
-  padding-bottom: 16px;
+.section--tight{
+  padding-top:18px;
+  padding-bottom:18px;
 }
+.section--tight{
+  background: #f5f6f8;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
 /* BENEFÍCIOS DO HERO */
 .benefits {
   display: flex;
@@ -928,6 +945,114 @@ small{color:var(--muted);font-weight:600}
   .brandPremium{grid-template-columns: 1fr auto;}
   .logoCenter{justify-self:start;}
 }
+html, body {
+  background: #f5f6f8; /* cinza bem leve premium */
+}
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.35)
+  );
+  pointer-events: none;
+}
+/* ===== PROVA SOCIAL (Hero right card) ===== */
+.proofRow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.proofStars{
+  font-size:14px;
+  letter-spacing:1px;
+  color:#fbbf24;
+}
+
+.proofMeta{
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.proofPills{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.proofQuote{
+  margin-top: 2px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background:#f9fafb;
+  color:#111;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.proofSmall{
+  margin-top: 6px;
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* ===== Steps (Forms right card) ===== */
+.steps{
+  display:grid;
+  gap:12px;
+  margin-top: 12px;
+  margin-bottom: 14px;
+}
+
+.stepItem{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+}
+
+.stepNum{
+  width:34px;
+  height:34px;
+  border-radius: 12px;
+  background: rgba(177,15,27,.12);
+  color: var(--red);
+  display:grid;
+  place-items:center;
+  font-weight: 1000;
+  flex: 0 0 34px;
+}
+
+.stepTxt{
+  color: var(--muted);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.faqMini{
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.steps{ gap:14px; }
+.stepTxt{ font-size:13px; }
+.faqMini ul li{ margin-bottom:6px; }
+
+.infoCard .infoBtn{
+  background:var(--red);
+  border-color:var(--red);
+  color:#fff;
+}
+.infoCard .infoBtn:hover{
+  filter:brightness(0.95);
+}
+
+
+
 
 
 

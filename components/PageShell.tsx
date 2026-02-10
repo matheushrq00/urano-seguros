@@ -35,15 +35,12 @@ export default function PageShell(props: {
   alt={heroImageAlt || title}
   fill
   priority
-  sizes="(max-width: 768px) 92vw, 900px"
+  sizes="(max-width: 768px) 92vw, 1120px"
   style={{
     objectFit: "cover",
-    objectPosition: "center 45%",
-    transform: "scale(1.08)",   // 👈 aumenta levemente
+    objectPosition: "center 30%", // 👈 ajuste o foco pra cima
   }}
 />
-
-
 
                 /
                 {/* overlay pra melhorar contraste do texto se precisar */}
@@ -113,13 +110,13 @@ export default function PageShell(props: {
         .heroWrap {
   position: relative;
   width: 100%;
-  max-width: 900px;
   aspect-ratio: 21 / 9;
-  min-height: 240px;
+  min-height: 260px;
+  max-height: 420px;   /* 👈 controla exagero */
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 16px;
-  background: #f6f6f6; /* em vez de rgba escuro */
+  background: #f6f6f6;
 }
 
 
