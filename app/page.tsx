@@ -8,6 +8,14 @@ import Partners from "@/components/Partners";
 export default function Page() {
   return (
     <main>
+      {/* 🔹 Parceiros logo abaixo da navbar preta */}
+      <section className="section section--tight">
+  <div className="container">
+    <Partners />
+  </div>
+</section>
+
+
       <Hero />
       <FormsSection />
       <ProductsSection />
@@ -18,12 +26,7 @@ export default function Page() {
           <Testimonials />
         </div>
       </section>
-
-      <section className="section">
-        <div className="container">
-          <Partners />
-        </div>
-      </section>
     </main>
   );
 }
+

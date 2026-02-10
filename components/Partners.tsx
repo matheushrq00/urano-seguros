@@ -20,7 +20,6 @@ export default function Partners() {
 
   return (
     <>
-      <h2 style={{ margin: "0 0 14px 0" }}>Parceiros</h2>
 
       <div className="partnersMarquee">
         <div className="partnersTrack">
