@@ -58,12 +58,9 @@ export default function Testimonials() {
   const [paused, setPaused] = useState(false);
   const [googleReviews, setGoogleReviews] = useState<ApiReview[] | null>(null);
   useEffect(() => {
-  console.log("reviews state:", googleReviews);
 }, [googleReviews]);
 
   const [place, setPlace] = useState<ApiPlace | null>(null);
-
-  console.log("reviews state:", googleReviews);
 
   // 🔥 Carrega reviews reais
   useEffect(() => {
@@ -178,10 +175,6 @@ export default function Testimonials() {
             
             Avaliações reais de clientes — atendimento humanizado e rápido.
           </p>
-
-          <div style={{ fontSize: 12, opacity: 0.7 }}>
-  debug: reviews={googleReviews ? googleReviews.length : "null"} | place={place ? "ok" : "null"}
-</div>
 
 
           {/* ✅ Média + total + botão */}
