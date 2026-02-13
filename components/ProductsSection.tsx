@@ -1,50 +1,33 @@
 export default function ProductsSection() {
   return (
-    <section className="section">
-      <div className="container">
-        <div className="productsGrid">
+    <section className="section--segments">
+  <div className="segmentsWrap">
+    <div className="segmentsHead">
+      <div className="segmentsEyebrow">URANO SEGUROS</div>
+      <h2 className="segmentsTitle">Nossos Segmentos</h2>
+      <p className="segmentsText">
+        Aqui você encontra soluções completas em seguros e produtos financeiros, com atendimento humano e consultivo.
+      </p>
+    </div>
 
-          {/* Seguro Auto */}
-          <div className="product">
-            <div
-              className="productImg"
-              style={{ backgroundImage: "url(/products/seguro-auto.png)" }}
-            />
-            <div className="productBody">
-              <h2>Seguro Auto</h2>
-              <p>Aqui você encontrará as melhores ofertas das seguradoras do mercado.</p>
-              <a className="btnGhost" href="/seguro-auto">Saiba mais</a>
-            </div>
-          </div>
+    <div className="segmentsGrid">
+      <a className="segmentCard" href="/seguro-residencial">
+        <div className="segmentIcon">🏠</div>
+        <h3>Para Você</h3>
+      </a>
 
-          {/* Seguro Residencial */}
-          <div className="product">
-            <div
-              className="productImg"
-              style={{ backgroundImage: "url(/products/seguro-residencial.png)" }}
-            />
-            <div className="productBody">
-              <h2>Seguro Residencial</h2>
-              <p>Proteção do patrimônio e assistências para viver com tranquilidade.</p>
-              <a className="btnGhost" href="/seguro-residencial">Saiba mais</a>
-            </div>
-          </div>
+      <a className="segmentCard" href="/seguro-empresarial">
+        <div className="segmentIcon">🏢</div>
+        <h3>Para sua empresa</h3>
+      </a>
 
-          {/* Seguro de Vida */}
-          <div className="product">
-            <div
-              className="productImg"
-              style={{ backgroundImage: "url(/products/seguro-vida.png)" }}
-            />
-            <div className="productBody">
-              <h2>Seguro de Vida</h2>
-              <p>Segurança para você e sua família com coberturas personalizadas.</p>
-              <a className="btnGhost" href="/seguro-vida">Saiba mais</a>
-            </div>
-          </div>
+      <a className="segmentCard" href="/consorcio">
+        <div className="segmentIcon">📈</div>
+        <h3>Produtos Financeiros</h3>
+      </a>
+    </div>
+  </div>
+</section>
 
-        </div>
-      </div>
-    </section>
   );
 }

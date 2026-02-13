@@ -8,26 +8,34 @@ export default function Header() {
 
   return (
     <>
-      {/* ===== TOPO PREMIUM (logo central + redes + CTA) ===== */}
-      <div className="brandRow">
-        <div className="container brandInner brandPremium">
-          {/* Redes sociais (esquerda) */}
-          <div className="socials" aria-label="Redes sociais">
+      {/* ===== TOPBAR FININHA (tipo Pedersen) ===== */}
+      <div className="topStrip">
+        <div className="container topStripInner">
+          <div className="topLeft">
+            <span className="topItem">
+              📞 / WhatsApp:{" "}
+              <a href="https://wa.me/5519998722063" target="_blank" rel="noreferrer">
+                (19) 99872-2063
+              </a>
+            </span>
+            <span className="topSep">|</span>
+            <span className="topItem">
+              ✉️ E-mail:{" "}
+              <a href="mailto:matheus.uranoseguros@gmail.com">
+                matheus.uranoseguros@gmail.com
+              </a>
+            </span>
+          </div>
+
+          <div className="topSocials" aria-label="Redes sociais">
             <a
               href="https://www.instagram.com/uranoseguros"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="socialBtn"
+              className="topSocialBtn"
             >
-              {/* Instagram SVG (premium e consistente) */}
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
                   stroke="currentColor"
@@ -52,16 +60,9 @@ export default function Header() {
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
-              className="socialBtn"
+              className="topSocialBtn"
             >
-              {/* Facebook SVG */}
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v3H7v3h3v6h3v-6h3l1-3h-4v-3c0-.6.4-1 1-1Z"
                   fill="currentColor"
@@ -69,14 +70,76 @@ export default function Header() {
               </svg>
             </a>
           </div>
+        </div>
+      </div>
 
-          {/* Logo central */}
-          <Link href="/" aria-label="Urano Seguros" className="logoLink logoCenter">
+      {/* ===== HEADER PRINCIPAL (logo + menu no branco) ===== */}
+      <div className="brandRow">
+        <div className="container brandInner">
+          {/* Logo à esquerda */}
+          <Link href="/" aria-label="Urano Seguros" className="logoLink">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo.png" alt="Urano Seguros" className="logo" />
           </Link>
 
-          {/* CTA direita + menu mobile */}
+          {/* Menu desktop (igual Pedersen) */}
+          <nav className="nav" aria-label="Menu principal">
+            <div className="navInner desktopMenu">
+              <Link className="navItem" href="/">
+                <span className="navLink">Home</span>
+              </Link>
+
+              <Link className="navItem" href="/a-empresa">
+                <span className="navLink">A Urano</span>
+              </Link>
+
+              <div className="navItem">
+                <span className="navLink">
+                  Para você <span className="caret">▼</span>
+                </span>
+                <div className="dropdown">
+                  <Link href="/seguro-auto">Auto / Moto</Link>
+                  <Link href="/seguro-residencial">Residencial</Link>
+                  <Link href="/seguro-vida">Vida</Link>
+                  <Link href="/planos-de-saude">Planos de Saúde</Link>
+                  <Link href="/seguros-eletronicos">Eletrônicos</Link>
+                </div>
+              </div>
+
+              <div className="navItem">
+                <span className="navLink">
+                  Para empresas <span className="caret">▼</span>
+                </span>
+                <div className="dropdown">
+                  <Link href="/seguro-empresarial">Seguro Empresarial</Link>
+                  <Link href="/seguro-empresarial">Frotas</Link>
+                  <Link href="/seguro-empresarial">Responsabilidade Civil</Link>
+                  <Link href="/seguro-empresarial">Transportes e Cargas</Link>
+                </div>
+              </div>
+
+              <div className="navItem">
+                <span className="navLink">
+                  Produtos Financeiros <span className="caret">▼</span>
+                </span>
+                <div className="dropdown">
+                  <Link href="/consorcio/auto">Consórcio Auto</Link>
+                  <Link href="/consorcio/imobiliario">Consórcio Imobiliário</Link>
+                  <Link href="/consorcio">Financiamento</Link>
+                </div>
+              </div>
+
+              <Link className="navItem" href="/faq">
+                <span className="navLink">F.A.Q</span>
+              </Link>
+
+              <Link className="navItem" href="/contato">
+                <span className="navLink">Contato</span>
+              </Link>
+            </div>
+          </nav>
+
+          {/* CTA + menu mobile */}
           <div className="headerRight">
             <Link className="ctaBtn" href="/#cotacao">
               Cote Grátis
@@ -93,184 +156,73 @@ export default function Header() {
             </button>
           </div>
         </div>
-      </div>
 
-      {/* ===== NAV ===== */}
-      <nav className="nav">
-        <div className="container navInner">
-          {/* Desktop menu */}
-          <div className="desktopMenu">
-            <Link className="navItem" href="/seguro-auto">
-              <span className="navLink">Auto</span>
+        {/* ===== MENU MOBILE (novo) ===== */}
+        <div className={`container mobileMenu ${mobileOpen ? "open" : ""}`}>
+          <Link className="mLink" href="/" onClick={() => setMobileOpen(false)}>
+            Home
+          </Link>
+          <Link className="mLink" href="/a-empresa" onClick={() => setMobileOpen(false)}>
+            A Urano
+          </Link>
+
+          <div className="mGroup">
+            <div className="mTitle">Para você</div>
+            <Link className="mSub" href="/seguro-auto" onClick={() => setMobileOpen(false)}>
+              Auto / Moto
             </Link>
-
-            <Link className="navItem" href="/seguro-vida">
-              <span className="navLink">Vida</span>
+            <Link className="mSub" href="/seguro-residencial" onClick={() => setMobileOpen(false)}>
+              Residencial
             </Link>
-
-            <div className="navItem">
-              <span className="navLink">
-                Consórcio <span className="caret">▼</span>
-              </span>
-              <div className="dropdown">
-                <Link href="/consorcio/auto">Consórcio Auto</Link>
-                <Link href="/consorcio/imobiliario">Consórcio Imobiliário</Link>
-              </div>
-            </div>
-
-            <Link className="navItem" href="/planos-de-saude">
-              <span className="navLink">Planos de Saúde</span>
-            </Link>
-
-            <div className="navItem">
-              <span className="navLink">
-                Para você <span className="caret">▼</span>
-              </span>
-              <div className="dropdown">
-                <Link href="/seguro-auto">Automóveis / Caminhões</Link>
-                <Link href="/seguro-residencial">Residência</Link>
-                <Link href="/seguro-vida">Vida</Link>
-                <Link href="/seguros-eletronicos">Eletrônicos</Link>
-                <Link href="/planos-de-saude">Saúde</Link>
-                <Link href="/consorcio/auto">Consórcio Auto</Link>
-                <Link href="/consorcio/imobiliario">Consórcio Imobiliário</Link>
-              </div>
-            </div>
-
-            <div className="navItem">
-              <span className="navLink">
-                Para empresa <span className="caret">▼</span>
-              </span>
-              <div className="dropdown">
-                <Link href="/seguro-empresarial">Empresarial</Link>
-                <Link href="/seguro-empresarial">Responsabilidade Civil</Link>
-                <Link href="/seguro-empresarial">Frotas</Link>
-                <Link href="/seguro-empresarial">Transportes e Cargas</Link>
-              </div>
-            </div>
-
-            <div className="navItem">
-              <span className="navLink">
-                Institucional <span className="caret">▼</span>
-              </span>
-              <div className="dropdown">
-                <Link href="/a-empresa">A Empresa</Link>
-                <Link href="/politica-de-cancelamento">Política de Cancelamento</Link>
-                <Link href="/responsabilidade-social">Responsabilidade Social</Link>
-                <Link href="/contato">Contato</Link>
-              </div>
-            </div>
-
-            <Link className="navItem" href="/contato">
-              <span className="navLink">Contato</span>
-            </Link>
-          </div>
-
-          {/* Mobile menu */}
-          <div className={`mobileMenu ${mobileOpen ? "open" : ""}`}>
-            <Link className="mLink" href="/seguro-auto" onClick={() => setMobileOpen(false)}>
-              Auto
-            </Link>
-            <Link className="mLink" href="/seguro-vida" onClick={() => setMobileOpen(false)}>
+            <Link className="mSub" href="/seguro-vida" onClick={() => setMobileOpen(false)}>
               Vida
             </Link>
-            <Link className="mLink" href="/planos-de-saude" onClick={() => setMobileOpen(false)}>
+            <Link className="mSub" href="/planos-de-saude" onClick={() => setMobileOpen(false)}>
               Planos de Saúde
             </Link>
-
-            <div className="mGroup">
-              <div className="mTitle">Consórcio</div>
-              <Link className="mSub" href="/consorcio/auto" onClick={() => setMobileOpen(false)}>
-                Consórcio Auto
-              </Link>
-              <Link
-                className="mSub"
-                href="/consorcio/imobiliario"
-                onClick={() => setMobileOpen(false)}
-              >
-                Consórcio Imobiliário
-              </Link>
-            </div>
-
-            <div className="mGroup">
-              <div className="mTitle">Para você</div>
-              <Link className="mSub" href="/seguro-auto" onClick={() => setMobileOpen(false)}>
-                Automóveis / Caminhões
-              </Link>
-              <Link className="mSub" href="/seguro-residencial" onClick={() => setMobileOpen(false)}>
-                Residência
-              </Link>
-              <Link className="mSub" href="/seguro-vida" onClick={() => setMobileOpen(false)}>
-                Vida
-              </Link>
-              <Link
-                className="mSub"
-                href="/seguros-eletronicos"
-                onClick={() => setMobileOpen(false)}
-              >
-                Eletrônicos
-              </Link>
-              <Link className="mSub" href="/planos-de-saude" onClick={() => setMobileOpen(false)}>
-                Saúde
-              </Link>
-              <Link className="mSub" href="/consorcio/auto" onClick={() => setMobileOpen(false)}>
-                Consórcio Auto
-              </Link>
-              <Link
-                className="mSub"
-                href="/consorcio/imobiliario"
-                onClick={() => setMobileOpen(false)}
-              >
-                Consórcio Imobiliário
-              </Link>
-            </div>
-
-            <div className="mGroup">
-              <div className="mTitle">Para empresa</div>
-              <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
-                Empresarial
-              </Link>
-              <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
-                Responsabilidade Civil
-              </Link>
-              <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
-                Frotas
-              </Link>
-              <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
-                Transportes e Cargas
-              </Link>
-            </div>
-
-            <div className="mGroup">
-              <div className="mTitle">Institucional</div>
-              <Link className="mSub" href="/a-empresa" onClick={() => setMobileOpen(false)}>
-                A Empresa
-              </Link>
-              <Link
-                className="mSub"
-                href="/politica-de-cancelamento"
-                onClick={() => setMobileOpen(false)}
-              >
-                Política de Cancelamento
-              </Link>
-              <Link
-                className="mSub"
-                href="/responsabilidade-social"
-                onClick={() => setMobileOpen(false)}
-              >
-                Responsabilidade Social
-              </Link>
-              <Link className="mSub" href="/contato" onClick={() => setMobileOpen(false)}>
-                Contato
-              </Link>
-            </div>
-
-            <Link className="mLink" href="/contato" onClick={() => setMobileOpen(false)}>
-              Contato
+            <Link className="mSub" href="/seguros-eletronicos" onClick={() => setMobileOpen(false)}>
+              Eletrônicos
             </Link>
           </div>
+
+          <div className="mGroup">
+            <div className="mTitle">Para empresas</div>
+            <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
+              Seguro Empresarial
+            </Link>
+            <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
+              Frotas
+            </Link>
+            <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
+              Responsabilidade Civil
+            </Link>
+            <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
+              Transportes e Cargas
+            </Link>
+          </div>
+
+          <div className="mGroup">
+            <div className="mTitle">Produtos Financeiros</div>
+            <Link className="mSub" href="/consorcio/auto" onClick={() => setMobileOpen(false)}>
+              Consórcio Auto
+            </Link>
+            <Link className="mSub" href="/consorcio/imobiliario" onClick={() => setMobileOpen(false)}>
+              Consórcio Imobiliário
+            </Link>
+            <Link className="mSub" href="/consorcio" onClick={() => setMobileOpen(false)}>
+              Financiamento
+            </Link>
+          </div>
+
+          <Link className="mLink" href="/faq" onClick={() => setMobileOpen(false)}>
+            F.A.Q
+          </Link>
+
+          <Link className="mLink" href="/contato" onClick={() => setMobileOpen(false)}>
+            Contato
+          </Link>
         </div>
-      </nav>
+      </div>
     </>
   );
 }

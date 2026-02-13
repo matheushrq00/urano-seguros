@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const fallbackTestimonials = [
   { name: "Danila Fernanda de Souza", text: "Excelente, o corretor é atencioso, o processo foi simples e rápido." },
@@ -29,10 +29,6 @@ type ApiPlace = {
   mapsUrl?: string | null;
 };
 
-type ApiResponse =
-  | { ok: true; reviews: ApiReview[]; place?: ApiPlace }
-  | { ok: false; message?: string };
-
 function initials(name: string) {
   const parts = name.trim().split(/\s+/);
   const first = parts[0]?.[0] ?? "";
@@ -53,46 +49,39 @@ function Stars({ value = 5 }: { value?: number }) {
 }
 
 export default function Testimonials() {
-  const scrollerRef = useRef<HTMLDivElement | null>(null);
-
   const [paused, setPaused] = useState(false);
-  const [googleReviews, setGoogleReviews] = useState<ApiReview[] | null>(null);
-  useEffect(() => {
-}, [googleReviews]);
 
+  const [googleReviews, setGoogleReviews] = useState<ApiReview[] | null>(null);
   const [place, setPlace] = useState<ApiPlace | null>(null);
+
+  // slider state
+  const [active, setActive] = useState(0);
+  const isAnimatingRef = useRef(false);
 
   // 🔥 Carrega reviews reais
   useEffect(() => {
-  let alive = true;
+    let alive = true;
 
-  fetch("/api/google-reviews", { cache: "no-store" })
-    .then((r) => r.json())
-    .then((data: any) => {
-      console.log("API /api/google-reviews:", data);
+    fetch("/api/google-reviews", { cache: "no-store" })
+      .then((r) => r.json())
+      .then((data: any) => {
+        if (!alive) return;
 
-      if (!alive) return;
+        if (data?.ok && Array.isArray(data.reviews)) {
+          const cleaned = data.reviews
+            .filter((x: any) => (x?.text || "").trim().length > 0)
+            .slice(0, 8);
 
-      console.log("API /api/google-reviews:", data);
+          if (cleaned.length > 0) setGoogleReviews(cleaned);
+          if (data.place) setPlace(data.place);
+        }
+      })
+      .catch(() => {});
 
-      if (data?.ok && Array.isArray(data.reviews)) {
-        const cleaned = data.reviews
-          .filter((x: any) => (x?.text || "").trim().length > 0)
-          .slice(0, 8);
-
-        console.log("cleaned reviews:", cleaned.length);
-
-        if (cleaned.length > 0) setGoogleReviews(cleaned);
-        if (data.place) setPlace(data.place);
-      }
-    })
-    .catch((err) => console.log("Erro fetch reviews:", err));
-
-  return () => {
-    alive = false;
-  };
-}, []);
-
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   const items = useMemo(() => {
     if (googleReviews && googleReviews.length > 0) {
@@ -116,28 +105,37 @@ export default function Testimonials() {
     }));
   }, [googleReviews]);
 
-  function jumpSize() {
-    const el = scrollerRef.current;
-    if (!el) return 360;
-    const card = el.querySelector<HTMLElement>(".tSlide");
-    return (card?.offsetWidth ?? 360) + 14;
-  }
-
-  function scrollByCards(direction: "left" | "right") {
-    const el = scrollerRef.current;
-    if (!el) return;
-
-    el.scrollBy({
-      left: direction === "left" ? -jumpSize() : jumpSize(),
-      behavior: "smooth",
-    });
-  }
-
-  // Autoplay leve
+  // mantém active válido quando items muda (ex: quando chega do Google)
   useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
+    if (active >= items.length) setActive(0);
+  }, [items.length, active]);
 
+  const placeRating = place?.rating ?? null;
+  const placeCount = place?.userRatingCount ?? null;
+  const placeMapsUrl =
+    place?.mapsUrl ||
+    "https://www.google.com/search?q=Urano+Seguros+avalia%C3%A7%C3%B5es";
+
+  const go = useCallback(
+    (delta: number) => {
+      if (items.length <= 1) return;
+
+      // anti-spam (mas sem travar para sempre)
+      if (isAnimatingRef.current) return;
+      isAnimatingRef.current = true;
+
+      setActive((a) => (a + delta + items.length) % items.length);
+
+      // duração deve bater com o CSS transition
+      window.setTimeout(() => {
+        isAnimatingRef.current = false;
+      }, 520);
+    },
+    [items.length]
+  );
+
+  // Autoplay (1 por vez)
+  useEffect(() => {
     const reduceMotion =
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
@@ -146,104 +144,47 @@ export default function Testimonials() {
 
     const id = window.setInterval(() => {
       if (paused) return;
-
-      const j = jumpSize();
-      const maxScroll = el.scrollWidth - el.clientWidth;
-
-      if (el.scrollLeft + j >= maxScroll - 2) {
-        el.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        el.scrollBy({ left: j, behavior: "smooth" });
-      }
+      go(1);
     }, 6500);
 
     return () => window.clearInterval(id);
-  }, [paused]);
-
-  const placeRating = place?.rating ?? null;
-  const placeCount = place?.userRatingCount ?? null;
-  const placeMapsUrl =
-    place?.mapsUrl ||
-    "https://www.google.com/search?q=Urano+Seguros+avalia%C3%A7%C3%B5es";
+  }, [paused, go]);
 
   return (
     <div className="testimonials">
-      <div className="testimonialsHeadRow">
-        <div>
-          <h2 className="testimonialsTitle">Depoimentos</h2>
-          <p className="testimonialsSub">
-            
-            Avaliações reais de clientes — atendimento humanizado e rápido.
-          </p>
+      
 
+      {/* ✅ faixa dark estilo banner */}
+      <div
+        className="tStage"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
+        onPointerDown={() => setPaused(true)}
+        onPointerUp={() => setPaused(false)}
+        onTouchStart={() => setPaused(true)}
+        onTouchEnd={() => setPaused(false)}
+      >
+        <button type="button" className="tNav tNavLeft" onClick={() => go(-1)} aria-label="Anterior">
+          ←
+        </button>
 
-          {/* ✅ Média + total + botão */}
-          {placeRating && placeCount ? (
-            <div className="tSummaryRow">
-              <div className="tSummary">
-                <span className="tSummaryStar">★</span>
-                <strong>{placeRating.toFixed(1)}</strong>
-                <span className="tSummarySep">•</span>
-                <span>{placeCount} avaliações no Google</span>
-              </div>
+        <button type="button" className="tNav tNavRight" onClick={() => go(1)} aria-label="Próximo">
+          →
+        </button>
 
-              <a
-                className="tGoogleLink"
-                href={placeMapsUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Ver todas no Google
-              </a>
-            </div>
-          ) : null}
-        </div>
-
-        <div className="tArrows" aria-label="Controles do carrossel">
-          <button
-            type="button"
-            className="tArrow"
-            onClick={() => scrollByCards("left")}
-            aria-label="Ver depoimentos anteriores"
-          >
-            ‹
-          </button>
-          <button
-            type="button"
-            className="tArrow"
-            onClick={() => scrollByCards("right")}
-            aria-label="Ver próximos depoimentos"
-          >
-            ›
-          </button>
-        </div>
-      </div>
-
-      <div className="tCarouselWrap">
-        <div
-          ref={scrollerRef}
-          className="tCarousel"
-          role="region"
-          aria-label="Carrossel de depoimentos"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-          onFocus={() => setPaused(true)}
-          onBlur={() => setPaused(false)}
-          onPointerDown={() => setPaused(true)}
-          onPointerUp={() => setPaused(false)}
-          onTouchStart={() => setPaused(true)}
-          onTouchEnd={() => setPaused(false)}
-        >
+        <div className="tTrack" style={{ transform: `translate3d(-${active * 100}%,0,0)` }}>
           {items.map((t, idx) => (
-            <article key={`${t.name}-${idx}`} className="tCard tSlide">
-              <div className="tTop">
-                <div className="tAvatar" aria-hidden="true">
+            <article key={`${t.name}-${idx}`} className="tSlide2" aria-hidden={idx !== active}>
+              <div className="tRow">
+                <div className="tAvatar2" aria-hidden="true">
                   {t.photoUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={t.photoUrl}
                       alt={t.name}
-                      className="tAvatarImg"
+                      className="tAvatarImg2"
                       loading="lazy"
                       referrerPolicy="no-referrer"
                       onError={(e) => {
@@ -253,34 +194,29 @@ export default function Testimonials() {
                   ) : (
                     <span>{initials(t.name)}</span>
                   )}
-                  {/* iniciais podem aparecer por trás se a imagem falhar */}
-                  <span className="tAvatarInitials">{initials(t.name)}</span>
                 </div>
 
-                <div className="tMeta">
-                  <div className="tName">{t.name}</div>
-                  <Stars value={t.rating ?? 5} />
-                  {t.when ? <div className="tWhen">{t.when}</div> : null}
-                </div>
+                <div className="tContent2">
+                  <p className="tQuote2">“{t.text}”</p>
 
-                <a
-                  className="tBadge"
-                  title="Avaliação do Google"
-                  href={t.authorUrl || placeMapsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Google
-                </a>
+                  <div className="tWho2">
+                    <div className="tName2">{t.name}</div>
+
+                    <div className="tMeta2">
+                      <Stars value={t.rating ?? 5} />
+                      {t.when ? <span className="tWhen2">• {t.when}</span> : null}
+
+                      <a className="tGoogle2" href={t.authorUrl || placeMapsUrl} target="_blank" rel="noreferrer">
+                        Google
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              <p className="tText">“{t.text}”</p>
             </article>
           ))}
         </div>
       </div>
-
-      <div className="tHint">Dica: arraste para o lado no celular para ver mais depoimentos.</div>
     </div>
   );
 }

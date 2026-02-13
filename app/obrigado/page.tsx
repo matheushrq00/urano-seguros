@@ -1,4 +1,6 @@
 import Link from "next/link";
+import ObrigadoTracking from "./ObrigadoTracking";
+
 
 export const metadata = {
   title: "Obrigado! | Urano Seguros",
@@ -12,6 +14,7 @@ const WHATSAPP_LINK =
 export default function ObrigadoPage() {
   return (
     <main className="section">
+          <ObrigadoTracking />
       <div className="container" style={{ maxWidth: 860 }}>
         <div className="card" style={{ padding: 28, textAlign: "center" }}>
           <div style={{ fontSize: 42, marginBottom: 8 }}>✅</div>
