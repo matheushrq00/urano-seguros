@@ -34,7 +34,7 @@ export default function Hero() {
         secondaryLabel: "Saiba mais",
         note: "Sem compromisso • Atendimento rápido",
         image: "/images/auto-moto.webp",
-        bgPos: "60% center",
+        bgPos: "40% 100%"
       },
       {
         title: "Proteção completa para sua Empresa",
@@ -46,7 +46,7 @@ export default function Hero() {
         secondaryLabel: "Saiba mais",
         note: "Atendimento consultivo",
         image: "/images/empresarial.webp",
-        bgPos: "70% center",
+        bgPos: "60% 30%"
       },
       {
         title: "Financiamento e Consórcio",
@@ -58,7 +58,7 @@ export default function Hero() {
         secondaryLabel: "Saiba mais",
         note: "Sem juros no consórcio",
         image: "/images/financiamento-consorcio.webp",
-        bgPos: "62% center",
+        bgPos: "60% 90%"
       },
     ],
     []
@@ -350,6 +350,7 @@ const isReal = idx >= 1 && idx <= realCount;
   priority={loopIsRealFirst}
   fetchPriority={loopIsRealFirst ? "high" : "auto"}
   sizes="100vw"
+  quality={100}
   onLoad={() => setLoaded((prev) => ({ ...prev, [src]: true }))}
   style={{
     objectFit: "cover",

@@ -79,9 +79,9 @@ export default function PageShell(props: {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="card">
+      <section className="section section--quote">
+  <div className="container">
+    <div className="card card--quoteMain">
             {bullets.length ? (
               <ul style={{ margin: 0, paddingLeft: 18, color: "var(--muted)", lineHeight: 1.9 }}>
                 {bullets.map((b, i) => (

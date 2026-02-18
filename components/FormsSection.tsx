@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { WHATSAPP_LINK } from "./constants";
 
@@ -11,11 +11,10 @@ function buildWhatsMessage(data: any) {
     "Olá! Vim pelo site e gostaria de atendimento:",
     "",
     `Tipo: ${data.tipo}`,
+    `Seguro: ${data.seguro}`,
     `Nome: ${data.nome}`,
     `Telefone: ${data.telefone}`,
     data.email ? `E-mail: ${data.email}` : "",
-    data.seguro ? `Seguro: ${data.seguro}` : "",
-    data.vencimento ? `Vencimento: ${data.vencimento}` : "",
     data.observacao ? `Obs: ${data.observacao}` : "",
   ].filter(Boolean);
 
@@ -49,9 +48,9 @@ export default function FormsSection() {
 
   const [statusCot, setStatusCot] = useState<Status>("idle");
   const [msgCot, setMsgCot] = useState("");
+  const [showExtras, setShowExtras] = useState(false);
 
-  // CTA renovação (sem form duplicado)
-  function buildRenewWhatsText() {
+  const renewText = useMemo(() => {
     const lines = [
       "Olá! Quero renovar meu seguro 🙂",
       "Posso te enviar os dados?",
@@ -62,177 +61,252 @@ export default function FormsSection() {
       "• CPF (se necessário):",
     ];
     return encodeURIComponent(lines.join("\n"));
-  }
+  }, []);
 
   return (
-    <section className="section">
-      <div className="container grid2">
-        {/* FORM PRINCIPAL */}
-        <div className="card" id="cotacao">
-          <h2>Faça sua Cotação</h2>
-          <p>Rápido, sem compromisso — te atendemos direto no WhatsApp.</p>
+    <section className="quoteFintech" id="cotacao">
+      <div className="container quoteFintech__grid">
+        {/* LEFT: FORM */}
+        <div className="quoteFintech__left">
+          <div className="quoteFintech__head">
+            <div className="quoteFintech__eyebrow">
+              COTAÇÃO EM MINUTOS • ATENDIMENTO HUMANO
+            </div>
 
-          <form
-            className="form"
-            onSubmit={async (e) => {
-              e.preventDefault();
-              setStatusCot("loading");
-              setMsgCot("");
+            <h2 className="quoteFintech__title">
+              Receba sua proposta{" "}
+              <span className="uranoAccent">personalizada</span> em minutos.
+            </h2>
 
-              try {
-                const form = e.currentTarget;
-                const payload = await submitLead(form, "cotacao");
+            <p className="quoteFintech__sub">
+              A Urano compara seguradoras e coberturas ideais para o seu perfil —
+              sem compromisso.
+            </p>
 
-                if (typeof window !== "undefined") {
-                  (window as any).gtag?.("event", "lead", {
-                    event_category: "form",
-                    event_label: "site_urano",
-                    seguro: payload.seguro || "nao_informado",
-                    tipo: payload.tipo,
-                  });
+            <div className="quoteFintech__badges">
+              <span className="qBadge">⚡ Resposta rápida</span>
+              <span className="qBadge">🛡️ Comparação real</span>
+              <span className="qBadge">🤝 Suporte humano</span>
+            </div>
+          </div>
+
+          <div className="qCard qCard--form">
+            <form
+              className="qForm"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setStatusCot("loading");
+                setMsgCot("");
+
+                try {
+                  const form = e.currentTarget;
+                  const payload = await submitLead(form, "cotacao");
+
+                  if (typeof window !== "undefined") {
+                    (window as any).gtag?.("event", "lead", {
+                      event_category: "form",
+                      event_label: "site_urano",
+                      seguro: payload.seguro || "nao_informado",
+                      tipo: payload.tipo,
+                    });
+                  }
+
+                  setStatusCot("success");
+                  setMsgCot("Recebido! Vamos te atender agora no WhatsApp.");
+                  form.reset();
+
+                  const text = buildWhatsMessage(payload);
+                  window.open(`${WHATSAPP_LINK}&text=${text}`, "_blank");
+
+                  setTimeout(() => router.push("/obrigado"), 250);
+                } catch (err: any) {
+                  setStatusCot("error");
+                  setMsgCot(err.message || "Erro ao enviar.");
                 }
-
-                setStatusCot("success");
-                setMsgCot("Recebido! Vamos te atender agora no WhatsApp.");
-                form.reset();
-
-                const text = buildWhatsMessage(payload);
-                window.open(`${WHATSAPP_LINK}&text=${text}`, "_blank");
-
-                setTimeout(() => {
-                  router.push("/obrigado");
-                }, 300);
-              } catch (err: any) {
-                setStatusCot("error");
-                setMsgCot(err.message || "Erro ao enviar.");
-              }
-            }}
-          >
-            {/* honeypot invisível (anti-bot) */}
-            <input
-              name="website"
-              tabIndex={-1}
-              autoComplete="off"
-              style={{ display: "none" }}
-            />
-
-            <label>
-              Nome:
-              <input name="nome" placeholder="Seu nome" required minLength={2} />
-            </label>
-
-            <label>
-              Telefone:
+              }}
+            >
+              {/* honeypot */}
               <input
-                name="telefone"
-                placeholder="(19) 9xxxx-xxxx"
-                required
-                minLength={8}
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                style={{ display: "none" }}
               />
-            </label>
 
-            <label>
-              E-mail (opcional):
-              <input name="email" type="email" placeholder="seuemail@exemplo.com" />
-            </label>
+              <div className="qFields">
+                <input
+                  name="nome"
+                  placeholder="Seu nome"
+                  required
+                  minLength={2}
+                  className="qInput"
+                />
 
-            <label>
-              Seguro desejado:
-              <select name="seguro" defaultValue="Seguro Auto" required>
-                <option>Seguro Auto</option>
-                <option>Seguro de Vida</option>
-                <option>Seguro Residencial</option>
-                <option>Seguro Empresarial</option>
-                <option>Planos de Saúde</option>
-                <option>Consórcio Auto</option>
-                <option>Consórcio Imobiliário</option>
-                <option>Seguros Eletrônicos</option>
-              </select>
-            </label>
+                <input
+                  name="telefone"
+                  placeholder="Seu WhatsApp (ex: 19 99872-2063)"
+                  required
+                  minLength={8}
+                  inputMode="tel"
+                  className="qInput"
+                />
 
-            <label>
-              Observação (opcional):
-              <input
-                name="observacao"
-                placeholder="Ex: renovação, cidade, melhor horário..."
-              />
-            </label>
-
-            <small>Ao solicitar, você concorda com nossa política de privacidade.</small>
-
-            <button className="btn" type="submit" disabled={statusCot === "loading"}>
-              {statusCot === "loading" ? "Enviando..." : "Solicitar no WhatsApp"}
-            </button>
-
-            {msgCot ? <p style={{ marginTop: 10, fontWeight: 600 }}>{msgCot}</p> : null}
-          </form>
-        </div>
-
-        {/* CARD LATERAL: COMO FUNCIONA + FAQ + RENOVAÇÃO 1 CLIQUE */}
-        <div className="card">
-          <h2>Atendimento rápido</h2>
-          <p>Em 3 passos simples — sem burocracia.</p>
-
-          <div className="steps">
-            <div className="stepItem">
-              <div className="stepNum">1</div>
-              <div>
-                <strong>Você envia seus dados</strong>
-                <div className="stepTxt">Nome + telefone e o que quer cotar.</div>
+                <select
+                  name="seguro"
+                  defaultValue="Seguro Auto"
+                  required
+                  className="qInput"
+                >
+                  <option>Seguro Auto</option>
+                  <option>Seguro de Vida</option>
+                  <option>Seguro Residencial</option>
+                  <option>Seguro Empresarial</option>
+                  <option>Planos de Saúde</option>
+                  <option>Consórcio Auto</option>
+                  <option>Consórcio Imobiliário</option>
+                  <option>Seguros Eletrônicos</option>
+                </select>
               </div>
-            </div>
 
-            <div className="stepItem">
-              <div className="stepNum">2</div>
-              <div>
-                <strong>Comparamos seguradoras</strong>
-                <div className="stepTxt">Buscamos o melhor custo-benefício pra você.</div>
+              <div className="qExtras">
+                <button
+                  type="button"
+                  className="qLinkBtn"
+                  onClick={() => setShowExtras((v) => !v)}
+                  aria-expanded={showExtras}
+                >
+                  {showExtras
+                    ? "Ocultar detalhes"
+                    : "Adicionar mais detalhes (opcional)"}
+                </button>
+
+                {showExtras && (
+                  <div className="qFields qFields--extras">
+                    <input
+                      name="email"
+                      type="email"
+                      placeholder="E-mail (opcional)"
+                      className="qInput"
+                    />
+                    <input
+                      name="observacao"
+                      placeholder="Ex: renovação, cidade, melhor horário..."
+                      className="qInput"
+                    />
+                  </div>
+                )}
               </div>
-            </div>
 
-            <div className="stepItem">
-              <div className="stepNum">3</div>
-              <div>
-                <strong>Você escolhe</strong>
-                <div className="stepTxt">Fechamento rápido, suporte humano.</div>
-              </div>
-            </div>
-          </div>
+              <button
+                className="qPrimaryBtn"
+                type="submit"
+                disabled={statusCot === "loading"}
+              >
+                {statusCot === "loading"
+                  ? "Enviando..."
+                  : "Falar com especialista no WhatsApp"}
+              </button>
 
-          <div className="faqMini">
-            <h3 style={{ margin: "0 0 10px 0" }}>Dúvidas comuns</h3>
-            <ul style={{ margin: 0, paddingLeft: 18, color: "var(--muted)", lineHeight: 1.9 }}>
-              <li>Quanto tempo pra cotar? <strong>Geralmente em minutos.</strong></li>
-              <li>Atende todo Brasil? <strong>Sim.</strong></li>
-              <li>Tem compromisso? <strong>Não.</strong></li>
-            </ul>
-          </div>
-
-          <div className="renewHighlight" style={{ marginTop: 16 }}>
-            <div className="iconBox">✓</div>
-            <div>
-              <h3 style={{ margin: 0 }}>Vai renovar?</h3>
-              <p style={{ margin: 0 }}>
-                Sem formulário duplicado: clique e mande placa + vencimento no WhatsApp.
-              </p>
-
-              <div style={{ marginTop: 10, display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <div className="qActions">
                 <a
-                  className="btnGhost"
-                  href={`${WHATSAPP_LINK}&text=${buildRenewWhatsText()}`}
+                  className="qSecondaryBtn"
+                  href={`${WHATSAPP_LINK}&text=${renewText}`}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Renovar no WhatsApp
+                  Renovar seguro
                 </a>
 
-                <a className="ctaBtn" href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
-                  Falar agora
+                <a
+                  className="qGhostBtn"
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  WhatsApp direto
                 </a>
+              </div>
+
+              <div className="qFinePrint">
+                Ao solicitar, você concorda com nossa política de privacidade.
+              </div>
+
+              {msgCot ? <div className="qMsg">{msgCot}</div> : null}
+            </form>
+          </div>
+        </div>
+
+        {/* RIGHT: TRUST */}
+        <aside className="quoteFintech__right">
+          <div className="qCard qCard--trust">
+            <div className="qTrustTop">
+              <div className="qTrustTitle">Por que escolher a Urano?</div>
+              <div className="qTrustSub">
+                Menos burocracia, mais clareza. Você fala com gente de verdade.
+              </div>
+            </div>
+
+            <div className="qTrustGrid">
+              <div className="qTrustItem">
+                <div className="qTrustIcon">⚡</div>
+                <div>
+                  <div className="qTrustH">Resposta rápida</div>
+                  <div className="qTrustP">
+                    Atendimento via WhatsApp, sem espera.
+                  </div>
+                </div>
+              </div>
+
+              <div className="qTrustItem">
+                <div className="qTrustIcon">🛡️</div>
+                <div>
+                  <div className="qTrustH">Comparação real</div>
+                  <div className="qTrustP">
+                    Avaliamos seguradoras e coberturas pro seu perfil.
+                  </div>
+                </div>
+              </div>
+
+              <div className="qTrustItem">
+                <div className="qTrustIcon">🤝</div>
+                <div>
+                  <div className="qTrustH">Suporte humano</div>
+                  <div className="qTrustP">
+                    Você não fica sozinho após contratar.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="qDivider" />
+
+            <div className="qFaq">
+              <div className="qFaqTitle">Dúvidas rápidas</div>
+              <ul className="qFaqList">
+                <li>
+                  Quanto tempo pra cotar?{" "}
+                  <strong>Geralmente em minutos.</strong>
+                </li>
+                <li>
+                  Tem compromisso? <strong>Não.</strong>
+                </li>
+                <li>
+                  Atende todo Brasil? <strong>Sim.</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="qSeal">
+            <div className="qSealDot" />
+            <div>
+              <div className="qSealTitle">Atendimento imediato</div>
+              <div className="qSealSub">
+                A equipe responde assim que você enviar.
               </div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
   );
