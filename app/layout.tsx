@@ -4,8 +4,8 @@ import ContactFooter from "@/components/ContactFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Script from "next/script";
 
-// ✅ FICA FORA DA FUNÇÃO
 export const metadata = {
+  metadataBase: new URL("https://www.uranoseguros.com.br"),
   title: "Urano Seguros",
   description:
     "Cote seguro auto, vida, residencial, empresarial, consórcio e mais com a Urano Seguros.",
