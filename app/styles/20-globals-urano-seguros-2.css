@@ -1,0 +1,29 @@
+/* =========================
+   GLOBALS (Urano Seguros)
+   - Limpo (sem duplicações)
+   - HERO unificado e blindado (660px)
+========================= */
+
+:root{
+  --red:#b10f1b;
+  --black:#0b0b0b;
+  --bg:#ffffff;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--black);
+}
+a{color:inherit;text-decoration:none}
+.containerNarrow{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}

@@ -1,0 +1,113 @@
+/* =========================
+   Responsive
+========================= */
+@media (max-width:980px){
+  .navInner{display:none;}
+  .topStripInner{gap:10px}
+
+  .grid2{grid-template-columns:1fr}
+  .productsGrid{grid-template-columns:1fr}
+  .footerGrid{grid-template-columns:1fr}
+  .waBtn{ animation:none; }
+
+  .socials{display:none;}
+  .brandPremium{grid-template-columns: 1fr auto;}
+  .logoCenter{justify-self:start;}
+}
+
+/* Mobile header */
+@media (max-width: 980px){
+  .brandInner{
+    display:grid !important;
+    grid-template-columns: auto 1fr auto;
+    align-items:center;
+    gap:10px;
+    padding:10px 0;
+  }
+  .logoLink{ display:flex; align-items:center; justify-content:flex-start; }
+  .logo{ height:48px; width:auto; display:block; }
+  .headerRight{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
+  }
+  .headerPhone{ display:none; }
+  .ctaBtn{
+    padding:10px 12px;
+    border-radius:14px;
+    font-size:14px;
+    white-space:nowrap;
+  }
+  .mobileMenuBtn{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+  }
+}
+
+/* Partners mobile */
+@media (max-width: 768px){
+  .partnerCard{ min-width:150px; height:80px; }
+  .partnerLogo{ max-height:36px; max-width:100px; }
+}
+/* SSR shell: ocupa espaço imediatamente e impede branco */
+.heroShell{
+  position:relative;
+  height:660px;
+  overflow:hidden;
+  background:#0b0b0b;
+}
+
+.heroShellMedia{
+  position:absolute;
+  inset:0;
+}
+
+/* overlay igual ao do slide */
+.heroShell::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.68) 0%,
+    rgba(0,0,0,.28) 55%,
+    rgba(0,0,0,.05) 100%
+  );
+  z-index:1;
+}
+
+.heroShellInner{
+  width:min(720px, 92%);
+  padding:84px 68px;
+  position:relative;
+  z-index:2;
+}
+
+/* ✅ garante que o shell fica “atrás” e o client por cima */
+.heroGrid{ position:relative; } /* (você já tem, mas reforça) */
+
+.heroShell{
+  position:relative;
+  z-index:0;          /* <-- coloca o shell atrás */
+}
+
+.heroClient{
+  position:absolute;
+  inset:0;
+  z-index:5;          /* <-- client acima de tudo */
+  opacity:0;
+  transition:opacity 120ms ease; /* mais rápido pra não “parecer” shell */
+}
+
+.heroClient.is-mounted{ opacity:1; }
+
+
+/* mobile */
+@media (max-width:768px){
+  .heroShell{ height:520px; }
+  .heroShellInner{ padding:72px 18px; width:94%; }
+}

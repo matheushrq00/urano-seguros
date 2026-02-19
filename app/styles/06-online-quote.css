@@ -1,0 +1,34 @@
+/* =========================
+   Online Quote
+========================= */
+.onlineQuote{
+  padding: 10px 20px 15px;
+  margin-top:-30px !important;
+  background: #f4f6f8;
+  text-align: center;
+}
+.onlineQuote__title{
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.onlineQuote__text{
+  max-width: 650px;
+  margin: 0 auto 22px;
+  font-size: 16px;
+  opacity: .75;
+}
+.onlineQuote__btn{
+  display: inline-block;
+  padding: 14px 30px;
+  font-weight: 800;
+  border-radius: 8px;
+  background: #21c100;
+  color: #fff;
+  text-decoration: none;
+  transition: all .2s ease;
+}
+.onlineQuote__btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.15);
+}

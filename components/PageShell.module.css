@@ -1,0 +1,22 @@
+.heroWrap {
+  position: relative;
+  width: 100%;
+  max-width: none;
+
+  /* 👇 CONTROLE REAL DA ALTURA */
+  height: 240px;
+
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #f6f6f6;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .heroWrap {
+    height: 220px;
+    border-radius: 16px;
+  }
+}
+

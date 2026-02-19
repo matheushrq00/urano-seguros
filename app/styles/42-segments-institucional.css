@@ -1,0 +1,45 @@
+/* ===== SEGMENTS INSTITUCIONAL ===== */
+
+.segmentCard{
+  text-align:left !important;
+  padding:28px 26px 26px !important;
+}
+
+.segmentTop{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:14px;
+}
+
+.segmentIcon{
+  width:54px !important;
+  height:54px !important;
+  border-radius:14px !important;
+  background:#F7F9FC !important;
+  border:1px solid rgba(15,23,42,.08) !important;
+  display:grid;
+  place-items:center;
+  color:#0B1F3B;
+}
+
+.segmentIcon svg{
+  width:22px;
+  height:22px;
+}
+
+.segmentCard h3{
+  margin:0;
+  font-size:20px !important;
+  font-weight:900 !important;
+}
+
+.segmentDesc{
+  margin-top:6px;
+  color:#64748B !important;
+}
+
+.segmentCta{
+  margin-top:16px;
+  font-weight:800 !important;
+}

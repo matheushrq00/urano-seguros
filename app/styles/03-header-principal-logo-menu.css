@@ -1,0 +1,117 @@
+/* =========================
+   HEADER PRINCIPAL (logo + menu)
+========================= */
+.brandRow{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:80;
+}
+
+.brandInner{
+  display:grid;
+  grid-template-columns: 220px 1fr 180px; /* logo | menu | CTA */
+  align-items:center;
+  gap:18px;
+  padding:12px 0; /* ↓ menos altura */
+}
+
+.logo{
+  height:48px;  /* ↓ padrão mais “Pedersen” */
+  width:auto;
+  display:block;
+}
+
+
+/* menu dentro do header */
+.nav{ background:transparent; }
+.navInner{
+  display:flex;
+  justify-content:center; /* ✅ centro real */
+  gap:22px;
+  align-items:center;
+  padding:0;
+  flex-wrap:nowrap;
+}
+
+.navItem{
+  position:relative;
+  color:#111;
+  font-weight:900;
+  font-size:15px;
+  opacity:.92;
+}
+.navItem:hover{opacity:1;color:var(--red);}
+.navLink{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 0;
+  cursor:pointer;
+}
+.navLink{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 0;
+  cursor:pointer;
+  position: relative; /* ✅ necessário pro underline */
+}
+
+/* underline animado */
+.navLink::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:0%;
+  height:2px;
+  background: var(--red);
+  transition: width .22s ease;
+  border-radius:2px;
+}
+
+.navItem:hover .navLink::after{
+  width:100%;
+}
+
+.caret{font-size:10px;opacity:.85}
+
+/* dropdown */
+.dropdown{
+  display:none;
+  position:absolute;
+  top:100%;
+  margin-top:8px;
+  left:0;
+  min-width:260px;
+  background:#fff;
+  color:#111;
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  padding:10px;
+  z-index:90;
+}
+.navItem:hover .dropdown{display:block}
+.dropdown a{
+  display:block;
+  padding:10px 10px;
+  border-radius:10px;
+  font-weight:800;
+}
+.dropdown a:hover{background:#f3f4f6}
+
+/* CTA */
+.ctaBtn{
+  background:var(--red);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:1000;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:0 10px 18px rgba(177,15,27,.18)
+}

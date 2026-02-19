@@ -1,0 +1,27 @@
+/* =========================
+   HEADER (Pedersen-like)
+========================= */
+
+.brandRow .brandInner{
+  display:grid;
+  grid-template-columns: 220px 1fr 180px;
+  align-items:center;
+  gap:18px;
+  padding:12px 0;
+}
+
+.brandRow .logo{
+  height:62px;
+  width:auto;
+}
+
+.brandRow .navInner{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:22px;
+}
+
+.brandRow .ctaBtn{
+  justify-self:end;
+}

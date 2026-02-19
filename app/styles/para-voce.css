@@ -1,0 +1,79 @@
+.hubWrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hubHero {
+  padding: 70px 0 30px;
+}
+
+.hubEyebrow {
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.hubTitle {
+  margin: 10px 0 10px;
+  font-size: 40px;
+  line-height: 1.1;
+}
+
+.hubText {
+  max-width: 720px;
+  opacity: 0.85;
+}
+
+.hubCtas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.hubGridSection {
+  padding: 30px 0 70px;
+}
+
+.hubGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hubCard {
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 18px;
+  text-decoration: none;
+  background: #fff;
+}
+
+.hubCardTitle {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.hubCardDesc {
+  margin: 0 0 14px;
+  opacity: 0.78;
+}
+
+.hubCardCta {
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .hubGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .hubGrid {
+    grid-template-columns: 1fr;
+  }
+}

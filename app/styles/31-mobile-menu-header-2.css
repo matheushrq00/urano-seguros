@@ -1,0 +1,57 @@
+/* =========================
+   Mobile Menu (Header)
+========================= */
+.mobileMenuBtn{
+  display:none;
+  background:rgba(255,255,255,.06);
+  color:#111;
+  border:1px solid var(--border);
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  font-size:18px;
+  font-weight:1000;
+  cursor:pointer;
+}
+.desktopMenu{display:flex; gap:18px; flex-wrap:wrap; align-items:center;}
+.mobileMenu{display:none;}
+
+/* Social icons (header) */
+.socialGroup{ display:flex; align-items:center; gap:10px; }
+.socialIcon{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  color:#444;
+  transition:all .25s ease;
+}
+.socialIcon svg{ width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none; }
+.socialIcon svg path{ vector-effect: non-scaling-stroke; }
+.socialIcon:hover{
+  background:rgba(215, 25, 32, 0.08);
+  border-color:rgba(215, 25, 32, 0.4);
+  color:#d71920;
+  transform:translateY(-1px);
+}
+.brandDivider{ width:1px; height:18px; background:#e5e7eb; margin:0 12px; }
+.brandMiniText{ font-size:13px; color:#444; font-weight:500; }
+.brandPremium{ display:grid; grid-template-columns:auto 1fr auto; align-items:center; }
+.socials{display:flex; gap:10px;}
+.socialBtn{
+  width:36px;height:36px;border-radius:999px;
+  border:1px solid var(--border);
+  background:#fff;
+  display:grid;place-items:center;
+  color:#111;
+  transition:all .2s ease;
+}
+.socialBtn:hover{
+  color:var(--red);
+  border-color:var(--red);
+  transform:translateY(-1px);
+}
+.logoCenter{justify-self:center;}

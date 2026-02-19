@@ -1,0 +1,31 @@
+/* =========================
+   HERO PREMIUM ANIMATION
+========================= */
+
+/* Estado inicial da imagem (escondida ou no próximo slide) */
+.slideMedia img {
+  transform: scale(1.15); /* Começa com zoom maior */
+  filter: saturate(0.8) blur(4px); /* Opcional: começa levemente desfocado */
+  transition: transform 1400ms cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 1000ms ease;
+  will-change: transform, filter;
+}
+
+/* Estado da imagem quando o slide se torna ATIVO */
+.slide.is-active .slideMedia img {
+  transform: scale(1); /* Volta ao tamanho original */
+  filter: saturate(1.1) blur(0);
+}
+
+/* Animação do Conteúdo (Texto e Botões) */
+.slideInner > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 800ms ease;
+}
+
+/* Entrada escalonada dos elementos (Staggered animation) */
+.slide.is-active .slideInner > h1 { opacity: 1; transform: translateY(0); transition-delay: 300ms; }
+.slide.is-active .slideInner > p  { opacity: 1; transform: translateY(0); transition-delay: 500ms; }
+.slide.is-active .slideInner > div { opacity: 1; transform: translateY(0); transition-delay: 700ms; }

@@ -1,0 +1,49 @@
+/* =========================
+   TOPBAR FININHA (tipo Pedersen)
+========================= */
+.topStrip{
+  background:#000; /* você pediu preto */
+  color:#fff;
+  font-weight:700;
+  font-size:13px;
+}
+
+.topStripInner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:14px 0;
+  flex-wrap:wrap;
+}
+
+.topLeft{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.topItem{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  opacity:.95;
+}
+.topItem a{ color:#fff; }
+.topItem a:hover{ text-decoration:underline; }
+.topSep{ opacity:.55; }
+
+/* ícones sociais na topbar */
+.topSocials{display:flex; gap:10px; align-items:center;}
+.topSocialBtn{
+  width:28px;height:28px;border-radius:999px;
+  display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  transition:transform .15s ease, background .15s ease;
+}
+.topSocialBtn:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.12);
+}

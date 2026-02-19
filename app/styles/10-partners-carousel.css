@@ -1,0 +1,46 @@
+/* =========================
+   Partners carousel
+========================= */
+.partnersMarquee{ overflow:hidden; width:100%; border-radius:16px; }
+.partnersTrack{
+  display:flex;
+  gap:16px;
+  width:max-content;
+  animation: partnersScroll 28s linear infinite;
+}
+.partnersMarquee:hover .partnersTrack{ animation-play-state: paused; }
+.partnerCard{
+  min-width:180px;
+  height:90px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+  box-shadow:none;
+}
+.partnerLogo{
+  max-height:42px;
+  max-width:120px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  opacity:.9;
+  transition:opacity .2s ease, transform .2s ease;
+}
+.partnerCard:hover .partnerLogo{ opacity:1; transform:scale(1.05); }
+@keyframes partnersScroll{
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Section tight */
+.section--tight{
+  padding-top:18px;
+  padding-bottom:18px;
+  background:#f5f6f8;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}

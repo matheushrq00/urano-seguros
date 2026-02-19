@@ -1,0 +1,64 @@
+/* =====================================
+   SEGMENTS — INSTITUCIONAL MASTER
+===================================== */
+
+/* Fundo mais limpo */
+.section--segments{
+  background:#F2F4F8 !important;
+}
+
+/* Cards mais brancos e definidos */
+.segmentCard{
+  background:#ffffff !important;
+  border:1px solid rgba(15,23,42,.06) !important;
+  box-shadow:
+    0 6px 18px rgba(15,23,42,.05) !important;
+}
+
+/* Hover mais sóbrio */
+.segmentCard:hover{
+  transform: translateY(-4px) !important;
+  border-color: rgba(43,90,166,.30) !important;
+  box-shadow:
+    0 14px 36px rgba(15,23,42,.10) !important;
+}
+
+/* Ícone mais forte */
+.segmentIcon{
+  width:58px !important;
+  height:58px !important;
+  border-radius:16px !important;
+  background:#F7F9FC !important;
+  border:1px solid rgba(15,23,42,.08) !important;
+  color:#0B1F3B !important;
+  font-size:0 !important;
+}
+
+/* SVG maior */
+.segmentIcon svg{
+  width:24px !important;
+  height:24px !important;
+  stroke:#0B1F3B !important;
+}
+
+/* Título mais forte */
+.segmentCard h3{
+  font-size:21px !important;
+  font-weight:900 !important;
+  color:#0B1220 !important;
+}
+
+/* Descrição mais leve */
+.segmentDesc{
+  font-size:14px !important;
+  color:#64748B !important;
+}
+
+/* CTA mais institucional */
+.segmentCta{
+  font-weight:800 !important;
+  color:#2B5AA6 !important;
+}
+.segmentCard:hover .segmentCta{
+  color:#1F4E9A !important;
+}

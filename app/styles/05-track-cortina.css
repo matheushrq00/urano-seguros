@@ -1,0 +1,230 @@
+/* =========================
+   TRACK (cortina)
+========================= */
+.slidesTrack{
+  display:flex;
+  height:100%;
+  will-change:transform;
+  transition: none !important;
+}
+.slidesTrack.is-anim:not(.no-anim){
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+/* Base */
+.slide .slideInner > *{
+  opacity: 0;
+  transform: translateY(40px) translateZ(0);
+  transition: transform 800ms cubic-bezier(0.16,1,0.3,1), opacity 200ms ease;
+  will-change: transform, opacity;
+}
+
+/* ATIVO REAL (ignora clones completamente) */
+.slidesTrack[data-active="0"] .slide[data-index="0"] .slideInner > *,
+.slidesTrack[data-active="1"] .slide[data-index="1"] .slideInner > *,
+.slidesTrack[data-active="2"] .slide[data-index="2"] .slideInner > *{
+  opacity: 1;
+  transform: translateY(0) translateZ(0);
+}
+
+/* Delays */
+.slide .slideInner > h1{ transition-delay: 250ms; }
+.slide .slideInner > p { transition-delay: 450ms; }
+.slide .slideInner > div{ transition-delay: 650ms; }
+
+
+
+
+
+
+/* slide */
+.slide{
+  flex: 0 0 100%;
+  height:100%;
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  color:#fff;
+
+  background:#111; /* fallback pra nunca “piscar branco” */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: paint;
+}
+
+/* mídia */
+.slideMedia{
+  position:absolute;
+  inset:0;
+  background:#0b0b0b;
+  z-index:0;
+}
+
+.slideFallback{
+  position:absolute;
+  inset:0;
+  background:#0b0b0b;
+  opacity:1;
+  transition: opacity 260ms ease;
+}
+.slideFallback.hide{ opacity:0; }
+
+/* overlay */
+.slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.68) 0%,
+    rgba(0,0,0,.28) 55%,
+    rgba(0,0,0,.05) 100%
+  );
+  z-index:1;
+}
+
+/* vinheta */
+.heroVignette{
+  position:absolute;
+  inset:0;
+  background: radial-gradient(1200px 520px at 15% 50%, rgba(0,0,0,.30), rgba(0,0,0,0) 55%);
+  z-index:1;
+  pointer-events:none;
+}
+
+/* conteúdo */
+.slideInner{
+  width:min(720px, 92%);
+  padding:84px 68px;
+  position:relative;
+  z-index:2;
+}
+
+.heroTitle{
+  margin:0 0 10px;
+  font-size:clamp(34px, 3.2vw, 56px);
+  line-height:1.04;
+  letter-spacing:-0.02em;
+  font-weight:900;
+  text-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+.heroSubtitle{
+  margin:0;
+  font-size:clamp(15px, 1.2vw, 18px);
+  opacity:.92;
+  line-height:1.6;
+  max-width:56ch;
+  text-shadow:0 10px 26px rgba(0,0,0,.28);
+}
+
+/* Benefícios do hero */
+.benefits{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:16px 0 18px;
+}
+.benefits span{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.35);
+  font-size:14px;
+  font-weight:800;
+  color:#111;
+  white-space:nowrap;
+}
+
+/* CTAs do hero */
+.slideCtas{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.slideCtas .ctaNote{
+  font-size:13px;
+  color:rgba(255,255,255,.75);
+}
+
+/* Botões do hero */
+.btnPrimary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 22px;
+  border-radius:999px;
+  background:#d71920;
+  color:#fff;
+  font-weight:900;
+  font-size:14px;
+  border:2px solid #d71920;
+  transition:all .25s ease;
+}
+.btnPrimary:hover{
+  background:#b8151b;
+  border-color:#b8151b;
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(215, 25, 32, 0.25);
+}
+/* Ghost no HERO (escuro) — mantém como está */
+.btnGhost{
+  border-radius:999px;
+  padding:12px 18px;
+  font-weight:900;
+  border:2px solid rgba(255,255,255,.45);
+  color:#fff;
+  background:rgba(255,255,255,.06);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .2s ease;
+}
+.btnGhost:hover{
+  border-color:rgba(255,255,255,.95);
+  background:rgba(255,255,255,.12);
+}
+
+/* ✅ Ghost no QUOTE (claro) — sobrescreve só ali */
+.section--quote .btnGhost{
+  color:#111;
+  background:#fff;
+  border:1px solid rgba(2,6,23,.14);
+  box-shadow: 0 10px 22px rgba(2,6,23,.06);
+    font-size:14px;
+  font-weight:700;
+  opacity:.85;
+}
+.section--quote .btnGhost:hover{
+  transform: translateY(-1px);
+  border-color: rgba(177,15,27,.35);
+  box-shadow: 0 16px 34px rgba(2,6,23,.10);
+  background:#fff;
+    opacity:1;
+}
+
+
+.heroMeta{
+  margin-top:16px;
+  font-size:13px;
+  opacity:.88;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .slidesTrack.is-anim{ transition: transform 1ms linear; }
+}
+
+
+/* Slider mobile */
+@media (max-width: 768px){
+  .slidesViewport{ height:520px; }
+  .slideInner{ padding:72px 18px; width:94%; }
+  .arrow{ width:36px; height:36px; border-radius:12px; font-size:18px; }
+  .dot{ width:8px; height:8px; }
+  .benefits{ margin:12px 0 14px; }
+  .benefits span{ font-size:13px; padding:5px 10px; }
+  .slideCtas{ gap:10px; }
+}
