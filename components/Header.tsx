@@ -89,7 +89,7 @@ export default function Header() {
                 <span className="navLink">Home</span>
               </Link>
 
-              <Link className="navItem" href="/a-empresa">
+              <Link className="navItem" href="/a-urano">
                 <span className="navLink">A Urano</span>
               </Link>
 
@@ -144,7 +144,7 @@ export default function Header() {
           <Link className="mLink" href="/" onClick={() => setMobileOpen(false)}>
             Home
           </Link>
-          <Link className="mLink" href="/a-empresa" onClick={() => setMobileOpen(false)}>
+          <Link className="mLink" href="/a-urano" onClick={() => setMobileOpen(false)}>
             A Urano
           </Link>
 

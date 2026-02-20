@@ -1,0 +1,370 @@
+.page { padding: 0; }
+
+/* HERO — mais premium e “institucional” */
+.hero{
+  padding: 54px 0;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(196,0,0,.20), transparent 42%),
+    radial-gradient(circle at 85% 22%, rgba(47,124,246,.14), transparent 46%),
+    linear-gradient(180deg, #06070a 0%, #0a1430 55%, #06070a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.08), transparent 30%, transparent 70%, rgba(255,255,255,.06));
+  opacity: .35;
+  pointer-events:none;
+}
+
+.heroInner{
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 28px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.heroTitle{
+  margin: 0;
+  color: #fff;
+  font-size: 54px;
+  font-weight: 1000;
+  letter-spacing: -.4px;
+  text-shadow: 0 14px 40px rgba(0,0,0,.45);
+}
+
+.breadcrumb{
+  margin-top: 12px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12.5px;
+  color: rgba(255,255,255,.76);
+}
+
+.breadcrumb a{
+  color: rgba(255,255,255,.92);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover{ text-decoration: underline; }
+.sep{ opacity: .65; }
+
+/* CONTENT */
+.content{
+  background:
+    radial-gradient(circle at 20% 10%, rgba(47,124,246,.08), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(196,0,0,.08), transparent 45%),
+    linear-gradient(180deg, #eef2f7 0%, #ffffff 55%, #eef2f7 100%);
+  padding: 56px 0 90px;
+}
+
+.wrap{
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* CARD PRINCIPAL — diferente do auto: mais “glass + luxo” */
+.cardShell{
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.86));
+  border: 1px solid rgba(15,30,60,.10);
+  box-shadow:
+    0 30px 90px rgba(10, 20, 40, .14),
+    0 10px 26px rgba(10, 20, 40, .08);
+  padding: 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* detalhe “premium” no topo do card */
+.cardShell::before{
+  content:"";
+  position:absolute;
+  left: 28px;
+  right: 28px;
+  top: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196,0,0,.55), rgba(47,124,246,.45), transparent);
+  opacity: .55;
+}
+
+/* Tipos */
+.kicker{
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 3px;
+  color: rgba(0,0,0,.45);
+}
+
+.h2{
+  margin: 0 0 14px;
+  font-size: 36px;
+  line-height: 1.12;
+  font-weight: 1000;
+  color: #0b2147;
+}
+
+.p{
+  margin: 0 0 14px;
+  line-height: 1.75;
+  color: rgba(0,0,0,.70);
+  font-size: 16px;
+}
+
+/* GRID (2 colunas no desktop) */
+.twoCol{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: stretch;
+}
+
+/* Botões */
+.btnPrimary{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #d10000, #b80000);
+  color: #fff;
+  font-weight: 1000;
+  text-decoration: none;
+  box-shadow: 0 16px 34px rgba(196,0,0,.20);
+  border: 1px solid rgba(255,255,255,.10);
+}
+.btnPrimary:hover{ filter: brightness(.99); transform: translateY(-1px); }
+
+.btnGreen{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #35c95a, #1ea945);
+  color: #fff;
+  font-weight: 1000;
+  text-decoration: none;
+  box-shadow: 0 16px 34px rgba(30,169,69,.18);
+  border: 1px solid rgba(255,255,255,.10);
+}
+.btnGreen:hover{ filter: brightness(.99); transform: translateY(-1px); }
+
+/* Nota com “dot” */
+.noteLine{
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: rgba(0,0,0,.66);
+  font-size: 13.5px;
+}
+
+.dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #2f7cf6;
+  box-shadow: 0 0 0 3px rgba(47,124,246,.14);
+}
+
+/* Divisor */
+.divider{
+  height: 1px;
+  background: rgba(15,30,60,.10);
+  margin: 28px 0 18px;
+}
+
+/* CTA final */
+.bottomCta{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-top: 6px;
+}
+
+.bottomLeft{ max-width: 720px; }
+
+.h3{
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 1000;
+  color: #0b2147;
+}
+
+.small{
+  margin: 0;
+  color: rgba(0,0,0,.62);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+/* Responsivo */
+@media (max-width: 980px){
+  .heroTitle{ font-size: 34px; }
+  .cardShell{ padding: 22px; }
+  .twoCol{ grid-template-columns: 1fr; }
+  .bottomCta{ flex-direction: column; align-items: stretch; }
+  .btnGreen{ width: 100%; }
+  .btnPrimary{ width: 100%; }
+}
+
+@media (max-width: 520px){
+  .hero{ padding: 52px 0; }
+  .wrap, .heroInner{ padding: 0 18px; }
+}
+.mapWrap{
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(15,30,60,.12);
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(10, 20, 40, .10);
+}
+
+.mapWrap iframe{
+  width: 100%;
+  height: 290px; /* seu layout atual */
+  display: block;
+}
+
+@media (max-width: 980px){
+  .mapWrap iframe{ height: 260px; }
+}
+.btnGhost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.85);
+  color: rgba(0,0,0,.85);
+  border: 1px solid rgba(0,0,0,.12);
+  font-weight: 1000;
+  text-decoration:none;
+}
+.btnGhost:hover{ background:#fff; }
+.head{ text-align:center; margin-bottom: 26px; }
+.grid{
+  display:grid;
+  grid-template-columns: 420px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.leftCol{ display:grid; gap: 16px; }
+
+.box{
+  border: 1px solid rgba(15,30,60,.10);
+  border-radius: 18px;
+  background: #f9fbfd;
+  padding: 18px;
+}
+
+.boxStrong{
+  background: #ffffff;
+  box-shadow: 0 16px 36px rgba(10, 20, 40, .08);
+}
+
+.boxHead{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.iconRed, .iconBlue{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 1000;
+  flex: 0 0 34px;
+}
+.iconRed{ background: rgba(196,0,0,.10); color:#c40000; }
+.iconBlue{ background: rgba(47,124,246,.10); color:#2f7cf6; }
+
+.block{ display:grid; gap: 4px; }
+.label{ font-weight: 950; color:#0b2147; font-size: 13px; }
+.value{ color: rgba(0,0,0,.72); font-size: 13.5px; line-height: 1.5; }
+.hr{ height:1px; background: rgba(15,30,60,.10); margin: 14px 0; }
+
+.channelCard{
+  border: 1px solid rgba(15,30,60,.10);
+  border-radius: 16px;
+  padding: 14px;
+  background: #f9fbfd;
+  margin-bottom: 10px;
+}
+.channelTitle{ font-weight: 950; color:#0b2147; font-size: 13px; margin-bottom: 4px; }
+.channelValue{ color: rgba(0,0,0,.75); font-size: 13.5px; }
+
+/* MAPA */
+.mapCard{
+  border-radius: 18px;
+  border: 1px solid rgba(15,30,60,.10);
+  background: #ffffff;
+  box-shadow: 0 16px 36px rgba(10, 20, 40, .08);
+  overflow: hidden;
+}
+
+.mapTop{
+  padding: 14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(180deg, #ffffff, #f6f9ff);
+  border-bottom: 1px solid rgba(15,30,60,.10);
+}
+
+.mapTitle{ font-weight: 1000; color:#0b2147; }
+.mapSub{ font-size: 12.5px; color: rgba(0,0,0,.62); }
+
+.mapWrap{
+  overflow:hidden;
+  background:#fff;
+}
+.mapWrap iframe{
+  width: 100%;
+  height: 420px;
+  display:block;
+}
+
+.mapFoot{
+  padding: 12px 16px;
+  font-size: 12.5px;
+  color: rgba(0,0,0,.62);
+  border-top: 1px solid rgba(15,30,60,.10);
+}
+
+.btnGhost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.92);
+  color: rgba(0,0,0,.85);
+  border: 1px solid rgba(0,0,0,.12);
+  font-weight: 1000;
+  text-decoration:none;
+}
+.btnGhost:hover{ background:#fff; }
+
+@media (max-width: 980px){
+  .grid{ grid-template-columns: 1fr; }
+  .mapWrap iframe{ height: 320px; }
+}

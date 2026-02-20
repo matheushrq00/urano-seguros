@@ -1,27 +1,27 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./previdencia-individual.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "Previdência Individual | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Previdência individual para planejamento financeiro de longo prazo, com orientação consultiva e planos sob medida. Faça sua cotação com a Urano Seguros.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function PrevidenciaIndividualPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>Previdência Individual</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
             <Link href="/para-voce">Para você</Link>
             <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>Previdência Individual</span>
           </div>
         </div>
       </section>
@@ -35,8 +35,8 @@ export default function SeguroResidenciaPage() {
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/previdencia-individual.png"
+                    alt="Casal planejando o futuro financeiro com clima de segurança e estabilidade"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -49,35 +49,35 @@ export default function SeguroResidenciaPage() {
               <div className={styles.copy}>
                 <p className={styles.kicker}>URANO SEGUROS</p>
 
-                <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
+                <h2 className={styles.h2}>Planeje hoje a tranquilidade do seu amanhã.</h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  A previdência individual é uma solução para quem deseja construir
+                  um planejamento financeiro de longo prazo, com disciplina e estratégia.
                 </p>
 
                 <p className={styles.p}>
-                  Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  Na Urano Seguros, você recebe orientação consultiva para entender
+                  as diferenças entre planos, tributação e objetivos — e escolher
+                  o que realmente faz sentido para sua realidade.
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Planejamento para aposentadoria
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Opções de tributação (conforme perfil)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Flexibilidade de aportes e resgates (conforme plano)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Estratégia alinhada aos seus objetivos financeiros
                   </li>
                 </ul>
 
@@ -88,13 +88,13 @@ export default function SeguroResidenciaPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Fazer cotação no WhatsApp
+                    Falar com especialista no WhatsApp
                   </a>
                 </div>
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Comece hoje a construir seu futuro financeiro.
                 </div>
               </div>
             </div>
@@ -105,14 +105,14 @@ export default function SeguroResidenciaPage() {
             {/* FAIXA COTAÇÃO ON-LINE */}
             <section className={styles.bottomCta}>
               <div className={styles.bottomLeft}>
-                <h3 className={styles.h3}>Cotação On-line</h3>
+                <h3 className={styles.h3}>Simulação Personalizada</h3>
                 <p className={styles.small}>
-                  Nosso sistema inteligente irá lhe oferecer as melhores opções.
+                  Descubra o plano ideal para seus objetivos financeiros.
                 </p>
               </div>
 
               <Link className={styles.btnGreen} href="/cotacao-online">
-                Quero fazer uma cotação
+                Quero fazer uma simulação
               </Link>
             </section>
           </div>

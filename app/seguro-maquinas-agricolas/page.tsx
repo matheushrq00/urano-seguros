@@ -1,27 +1,27 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./seguro-maquinas-agricolas.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "Seguro Máquinas Agrícolas | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Seguro Máquinas Agrícolas para proteger tratores, colheitadeiras e implementos contra riscos previstos em apólice. Atendimento consultivo com a Urano Seguros.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function SeguroMaquinasAgricolasPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>Seguro Máquinas Agrícolas</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
-            <Link href="/para-voce">Para você</Link>
+            <Link href="/para-empresas">Para empresas</Link>
             <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>Máquinas Agrícolas</span>
           </div>
         </div>
       </section>
@@ -31,12 +31,13 @@ export default function SeguroResidenciaPage() {
         <div className={styles.wrap}>
           <div className={styles.cardShell}>
             <div className={styles.twoCol}>
-              {/* LEFT (imagem) */}
+              
+              {/* IMAGEM */}
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/seguro-maquinas-agricolas.png"
+                    alt="Trator moderno em lavoura com cenário premium"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -45,39 +46,43 @@ export default function SeguroResidenciaPage() {
                 </div>
               </div>
 
-              {/* RIGHT (copy) */}
+              {/* COPY */}
               <div className={styles.copy}>
                 <p className={styles.kicker}>URANO SEGUROS</p>
 
-                <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
+                <h2 className={styles.h2}>
+                  Proteção para o maquinário que sustenta sua produção
+                </h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  O Seguro Máquinas Agrícolas é indicado para proteger tratores,
+                  colheitadeiras, pulverizadores e implementos contra riscos
+                  previstos na apólice, reduzindo impactos financeiros causados
+                  por imprevistos durante a operação.
                 </p>
 
                 <p className={styles.p}>
-                  Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  Na Urano Seguros, analisamos tipo de máquina, valor, uso,
+                  local de operação e perfil da propriedade para estruturar
+                  uma cobertura adequada com atendimento consultivo e transparente.
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Proteção para tratores, colheitadeiras e implementos
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Coberturas conforme tipo e finalidade da máquina
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Redução de riscos financeiros na operação agrícola
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Atendimento consultivo especializado no agro
                   </li>
                 </ul>
 
@@ -88,33 +93,32 @@ export default function SeguroResidenciaPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Fazer cotação no WhatsApp
+                    Solicitar cotação
                   </a>
                 </div>
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Segurança para operar com tranquilidade do plantio à colheita.
                 </div>
               </div>
             </div>
 
-            {/* DIVISÓRIA */}
             <div className={styles.divider} />
 
-            {/* FAIXA COTAÇÃO ON-LINE */}
             <section className={styles.bottomCta}>
-              <div className={styles.bottomLeft}>
-                <h3 className={styles.h3}>Cotação On-line</h3>
+              <div>
+                <h3 className={styles.h3}>Quer proteger seu maquinário?</h3>
                 <p className={styles.small}>
-                  Nosso sistema inteligente irá lhe oferecer as melhores opções.
+                  Informe modelo, valor e utilização e receba orientação personalizada.
                 </p>
               </div>
 
-              <Link className={styles.btnGreen} href="/cotacao-online">
-                Quero fazer uma cotação
+              <Link className={styles.btnGreen} href="/contato">
+                Falar com consultor
               </Link>
             </section>
+
           </div>
         </div>
       </section>

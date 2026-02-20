@@ -1,27 +1,27 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./responsabilidade-civil.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "Responsabilidade Civil Empresarial | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Seguro de Responsabilidade Civil Empresarial para proteger sua empresa contra danos a terceiros, com coberturas sob medida e atendimento consultivo. Faça sua cotação com a Urano Seguros.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function ResponsabilidadeCivilPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>Responsabilidade Civil Empresarial</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
-            <Link href="/para-voce">Para você</Link>
+            <Link href="/para-empresas">Para empresas</Link>
             <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>Responsabilidade Civil</span>
           </div>
         </div>
       </section>
@@ -31,12 +31,12 @@ export default function SeguroResidenciaPage() {
         <div className={styles.wrap}>
           <div className={styles.cardShell}>
             <div className={styles.twoCol}>
-              {/* LEFT (imagem) */}
+              {/* IMAGEM */}
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/responsabilidade-civil.png"
+                    alt="Executivos em reunião corporativa com clima de confiança e gestão de risco"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -45,39 +45,43 @@ export default function SeguroResidenciaPage() {
                 </div>
               </div>
 
-              {/* RIGHT (copy) */}
+              {/* COPY */}
               <div className={styles.copy}>
                 <p className={styles.kicker}>URANO SEGUROS</p>
 
-                <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
+                <h2 className={styles.h2}>
+                  Proteja sua empresa contra danos a terceiros
+                </h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  O seguro de Responsabilidade Civil Empresarial ajuda a proteger
+                  o seu negócio em situações em que a empresa possa ser
+                  responsabilizada por danos materiais e/ou corporais causados a
+                  terceiros (conforme coberturas contratadas).
                 </p>
 
                 <p className={styles.p}>
-                  Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  Na Urano Seguros, avaliamos sua atividade, exposição a risco e
+                  demandas do seu setor para estruturar uma apólice sob medida,
+                  com transparência e explicação clara.
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Coberturas sob medida para seu ramo de atividade
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Proteção contra danos a terceiros (conforme apólice)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Redução de exposição financeira e jurídica
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Atendimento consultivo e suporte ágil no WhatsApp
                   </li>
                 </ul>
 
@@ -88,13 +92,13 @@ export default function SeguroResidenciaPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Fazer cotação no WhatsApp
+                    Solicitar cotação
                   </a>
                 </div>
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Gestão de risco com linguagem clara e orientação especializada.
                 </div>
               </div>
             </div>
@@ -102,17 +106,17 @@ export default function SeguroResidenciaPage() {
             {/* DIVISÓRIA */}
             <div className={styles.divider} />
 
-            {/* FAIXA COTAÇÃO ON-LINE */}
+            {/* CTA FINAL */}
             <section className={styles.bottomCta}>
-              <div className={styles.bottomLeft}>
-                <h3 className={styles.h3}>Cotação On-line</h3>
+              <div>
+                <h3 className={styles.h3}>Quer uma análise do seu risco?</h3>
                 <p className={styles.small}>
-                  Nosso sistema inteligente irá lhe oferecer as melhores opções.
+                  Conte seu segmento e sua operação e a Urano estrutura a cobertura ideal.
                 </p>
               </div>
 
-              <Link className={styles.btnGreen} href="/cotacao-online">
-                Quero fazer uma cotação
+              <Link className={styles.btnGreen} href="/contato">
+                Falar com consultor
               </Link>
             </section>
           </div>

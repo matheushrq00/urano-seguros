@@ -1,27 +1,27 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./seguro-transportes.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "Seguro Transportes | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Seguro transportes para proteger mercadorias em trânsito nacional e internacional, com coberturas sob medida e atendimento consultivo. Faça sua cotação com a Urano Seguros.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function SeguroTransportesPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>Seguro Transportes</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
-            <Link href="/para-voce">Para você</Link>
+            <Link href="/para-empresas">Para empresas</Link>
             <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>Seguro Transportes</span>
           </div>
         </div>
       </section>
@@ -31,12 +31,12 @@ export default function SeguroResidenciaPage() {
         <div className={styles.wrap}>
           <div className={styles.cardShell}>
             <div className={styles.twoCol}>
-              {/* LEFT (imagem) */}
+              {/* IMAGEM */}
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/seguro-transportes.png"
+                    alt="Transporte de cargas em operação logística com caminhão moderno"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -45,39 +45,42 @@ export default function SeguroResidenciaPage() {
                 </div>
               </div>
 
-              {/* RIGHT (copy) */}
+              {/* COPY */}
               <div className={styles.copy}>
                 <p className={styles.kicker}>URANO SEGUROS</p>
 
-                <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
+                <h2 className={styles.h2}>
+                  Cobertura estratégica para transporte de mercadorias
+                </h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  O Seguro Transportes protege sua operação contra riscos durante o
+                  deslocamento de mercadorias, seja em rotas urbanas, rodoviárias
+                  e/ou em operações mais complexas (conforme plano contratado).
                 </p>
 
                 <p className={styles.p}>
-                  Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  Na Urano Seguros, avaliamos tipo de mercadoria, origem/destino,
+                  frequência e valores transportados para estruturar a melhor
+                  solução com transparência e orientação consultiva.
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Cobertura para transporte nacional e (quando aplicável) internacional
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Proteção contra acidentes e avarias (conforme cobertura)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Estrutura sob medida por tipo de carga e operação
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Atendimento consultivo e suporte ágil via WhatsApp
                   </li>
                 </ul>
 
@@ -88,13 +91,13 @@ export default function SeguroResidenciaPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Fazer cotação no WhatsApp
+                    Solicitar cotação
                   </a>
                 </div>
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Mais segurança e previsibilidade para sua cadeia logística.
                 </div>
               </div>
             </div>
@@ -102,17 +105,17 @@ export default function SeguroResidenciaPage() {
             {/* DIVISÓRIA */}
             <div className={styles.divider} />
 
-            {/* FAIXA COTAÇÃO ON-LINE */}
+            {/* CTA FINAL */}
             <section className={styles.bottomCta}>
-              <div className={styles.bottomLeft}>
-                <h3 className={styles.h3}>Cotação On-line</h3>
+              <div>
+                <h3 className={styles.h3}>Quer uma solução sob medida?</h3>
                 <p className={styles.small}>
-                  Nosso sistema inteligente irá lhe oferecer as melhores opções.
+                  Conte sua operação (tipo de carga, rotas e valores) e a Urano monta a cobertura ideal.
                 </p>
               </div>
 
-              <Link className={styles.btnGreen} href="/cotacao-online">
-                Quero fazer uma cotação
+              <Link className={styles.btnGreen} href="/contato">
+                Falar com consultor
               </Link>
             </section>
           </div>

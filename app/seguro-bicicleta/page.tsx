@@ -1,27 +1,27 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./seguro-bicicleta.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "Seguro Bicicleta | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Seguro bicicleta com coberturas sob medida, assistência (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function SeguroBicicletaPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>Seguro Bicicleta</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
             <Link href="/para-voce">Para você</Link>
             <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>Seguro Bicicleta</span>
           </div>
         </div>
       </section>
@@ -35,8 +35,8 @@ export default function SeguroResidenciaPage() {
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/seguro-bicicleta.png"
+                    alt="Ciclista brasileiro ao lado da bicicleta, em cenário premium"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -52,32 +52,32 @@ export default function SeguroResidenciaPage() {
                 <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  O seguro bicicleta protege sua bike contra imprevistos como roubo/furto
+                  qualificado, danos acidentais e situações do dia a dia — com coberturas sob
+                  medida para o seu perfil de uso.
                 </p>
 
                 <p className={styles.p}>
-                  Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  Na Urano Seguros, você conta com atendimento humano e consultivo para encontrar
+                  a melhor opção entre as principais seguradoras do mercado, de forma simples e rápida.
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Roubo e furto qualificado (conforme plano)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Danos acidentais e transporte (conforme cobertura)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Responsabilidade civil (danos a terceiros)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Atendimento rápido via WhatsApp
                   </li>
                 </ul>
 
@@ -94,7 +94,7 @@ export default function SeguroResidenciaPage() {
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Aproveite e faça uma cotação agora mesmo.
                 </div>
               </div>
             </div>

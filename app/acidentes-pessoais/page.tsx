@@ -1,27 +1,27 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./acidentes-pessoais.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "Acidentes Pessoais | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Seguro de acidentes pessoais com coberturas sob medida e atendimento consultivo. Mais proteção para sua rotina com a Urano Seguros.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function AcidentesPessoaisPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>Acidentes Pessoais</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
             <Link href="/para-voce">Para você</Link>
             <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>Acidentes Pessoais</span>
           </div>
         </div>
       </section>
@@ -35,8 +35,8 @@ export default function SeguroResidenciaPage() {
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/acidentes-pessoais.png"
+                    alt="Pessoa confiante em rotina ativa com clima de proteção e segurança"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -49,35 +49,34 @@ export default function SeguroResidenciaPage() {
               <div className={styles.copy}>
                 <p className={styles.kicker}>URANO SEGUROS</p>
 
-                <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
+                <h2 className={styles.h2}>Proteção para sua rotina, onde você estiver.</h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  O seguro de acidentes pessoais ajuda a garantir suporte financeiro em caso de
+                  acidentes, trazendo mais tranquilidade para você e sua família no dia a dia.
                 </p>
 
                 <p className={styles.p}>
                   Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  as coberturas ideais para seu perfil, com clareza e agilidade.
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Indenização por morte acidental (conforme plano)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Invalidez permanente por acidente (conforme plano)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Despesas médicas e hospitalares (conforme cobertura)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Coberturas personalizadas para sua rotina
                   </li>
                 </ul>
 
@@ -94,7 +93,7 @@ export default function SeguroResidenciaPage() {
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Proteja-se hoje e tenha mais tranquilidade amanhã.
                 </div>
               </div>
             </div>

@@ -1,27 +1,27 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./seguro-vida-em-grupo.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "Seguro de Vida em Grupo | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Seguro de Vida em Grupo para empresas que desejam proteger seus colaboradores com segurança e planejamento. Atendimento consultivo com a Urano Seguros.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function SeguroVidaEmGrupoPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>Seguro de Vida em Grupo</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
-            <Link href="/para-voce">Para você</Link>
+            <Link href="/para-empresas">Para empresas</Link>
             <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>Vida em Grupo</span>
           </div>
         </div>
       </section>
@@ -31,12 +31,13 @@ export default function SeguroResidenciaPage() {
         <div className={styles.wrap}>
           <div className={styles.cardShell}>
             <div className={styles.twoCol}>
-              {/* LEFT (imagem) */}
+              
+              {/* IMAGEM */}
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/seguro-vida-em-grupo.png"
+                    alt="Equipe corporativa reunida em ambiente profissional moderno"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -45,39 +46,43 @@ export default function SeguroResidenciaPage() {
                 </div>
               </div>
 
-              {/* RIGHT (copy) */}
+              {/* COPY */}
               <div className={styles.copy}>
                 <p className={styles.kicker}>URANO SEGUROS</p>
 
-                <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
+                <h2 className={styles.h2}>
+                  Proteção financeira para colaboradores e tranquilidade para a empresa
+                </h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  O Seguro de Vida em Grupo é uma solução voltada para empresas
+                  que desejam oferecer proteção aos seus colaboradores, garantindo
+                  segurança financeira em situações previstas na apólice
+                  (conforme cobertura contratada).
                 </p>
 
                 <p className={styles.p}>
-                  Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  Na Urano Seguros, analisamos o perfil da equipe, número de vidas
+                  e necessidades da empresa para estruturar um plano adequado,
+                  com atendimento consultivo e linguagem clara.
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Proteção para colaboradores (conforme apólice)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Coberturas ajustadas ao perfil da empresa
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Benefício estratégico para retenção de talentos
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Atendimento consultivo especializado
                   </li>
                 </ul>
 
@@ -88,33 +93,32 @@ export default function SeguroResidenciaPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Fazer cotação no WhatsApp
+                    Solicitar cotação
                   </a>
                 </div>
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Valorize sua equipe com segurança e responsabilidade.
                 </div>
               </div>
             </div>
 
-            {/* DIVISÓRIA */}
             <div className={styles.divider} />
 
-            {/* FAIXA COTAÇÃO ON-LINE */}
             <section className={styles.bottomCta}>
-              <div className={styles.bottomLeft}>
-                <h3 className={styles.h3}>Cotação On-line</h3>
+              <div>
+                <h3 className={styles.h3}>Quer estruturar esse benefício?</h3>
                 <p className={styles.small}>
-                  Nosso sistema inteligente irá lhe oferecer as melhores opções.
+                  Fale com a Urano e receba uma proposta personalizada para sua empresa.
                 </p>
               </div>
 
-              <Link className={styles.btnGreen} href="/cotacao-online">
-                Quero fazer uma cotação
+              <Link className={styles.btnGreen} href="/contato">
+                Falar com consultor
               </Link>
             </section>
+
           </div>
         </div>
       </section>

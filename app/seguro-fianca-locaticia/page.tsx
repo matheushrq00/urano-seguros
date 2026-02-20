@@ -1,27 +1,27 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./seguro-fianca-locaticia.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "Seguro Fiança Locatícia | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Seguro fiança locatícia como alternativa ao fiador e caução, com análise rápida e coberturas conforme plano. Faça sua cotação com a Urano Seguros.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function SeguroFiancaLocaticiaPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>Seguro Fiança Locatícia</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
             <Link href="/para-voce">Para você</Link>
             <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>Seguro Fiança Locatícia</span>
           </div>
         </div>
       </section>
@@ -35,8 +35,8 @@ export default function SeguroResidenciaPage() {
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/seguro-fianca-locaticia.png"
+                    alt="Casal recebendo as chaves do imóvel em cenário moderno e premium"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -49,35 +49,35 @@ export default function SeguroResidenciaPage() {
               <div className={styles.copy}>
                 <p className={styles.kicker}>URANO SEGUROS</p>
 
-                <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
+                <h2 className={styles.h2}>Alugue sem fiador e sem dor de cabeça.</h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  O seguro fiança locatícia é uma alternativa ao fiador e à caução, trazendo mais
+                  praticidade e segurança para o processo de locação — para inquilinos, proprietários
+                  e imobiliárias.
                 </p>
 
                 <p className={styles.p}>
-                  Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  Com a Urano Seguros, você recebe atendimento consultivo para entender o que faz sentido
+                  para o seu caso e conduzir a contratação com agilidade e clareza.
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Substitui fiador e caução (conforme regras)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Análise e aprovação ágeis (conforme seguradora)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Coberturas adicionais: condomínio, IPTU, água/luz (conforme plano)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Atendimento rápido via WhatsApp
                   </li>
                 </ul>
 
@@ -94,7 +94,7 @@ export default function SeguroResidenciaPage() {
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Ideal para quem quer alugar com mais praticidade e segurança.
                 </div>
               </div>
             </div>

@@ -1,0 +1,383 @@
+.page{
+  padding: 0;
+  background: #fff;
+}
+
+/* =========================
+   HERO — premium institucional
+========================= */
+.hero{
+  position: relative;
+  overflow: hidden;
+  padding: 46px 0px;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(196,0,0,.22), transparent 46%),
+    radial-gradient(circle at 82% 28%, rgba(0, 0, 0, 0.18), transparent 48%),
+    linear-gradient(90deg, #000000 0%, #000000 55%, #000000 100%);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.10), transparent 58%),
+    radial-gradient(circle at 0% 60%, rgba(255,255,255,.05), transparent 52%),
+    radial-gradient(circle at 100% 55%, rgba(255,255,255,.04), transparent 52%);
+  pointer-events:none;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  width: 980px;
+  height: 980px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,255,255,.06), transparent 60%);
+  filter: blur(2px);
+  pointer-events:none;
+}
+
+.heroInner{
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 56px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.heroTitle{
+  margin: 0;
+  color: #fff;
+  font-size: 62px;
+  font-weight: 1000;
+  letter-spacing: -.6px;
+  text-shadow: 0 18px 60px rgba(0,0,0,.45);
+}
+
+.breadcrumb{
+  margin-top: 14px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12.5px;
+  color: rgba(255,255,255,.72);
+}
+
+.breadcrumb a{
+  color: rgba(255,255,255,.90);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover{ text-decoration: underline; }
+
+.sep{ opacity:.6; }
+
+/* =========================
+   CONTENT + WRAP
+========================= */
+.content{
+  background: #fff;
+  padding: 64px 0 96px;
+}
+
+.wrap{
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+/* =========================
+   CARD SHELL — “seguradora grande”
+========================= */
+.cardShell{
+  position: relative;
+  border-radius: 36px;
+  border: 1px solid rgba(15,30,60,.10);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,250,255,1) 100%);
+  box-shadow:
+    0 52px 140px rgba(0,0,0,.12),
+    0 18px 50px rgba(0,0,0,.06);
+  padding: 66px;
+  overflow: hidden;
+}
+
+.cardShell::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(circle at 12% 25%, rgba(47,124,246,.12), transparent 45%),
+    radial-gradient(circle at 88% 18%, rgba(196,0,0,.12), transparent 48%);
+  pointer-events:none;
+}
+
+.cardShell > *{ position: relative; z-index: 1; }
+
+/* =========================
+   GRID 2 COLUNAS
+========================= */
+.twoCol{
+  display: grid;
+  grid-template-columns: 620px 1fr;
+  gap: 92px;
+  align-items: center;
+}
+
+/* =========================
+   MEDIA (imagem) — acabamento premium
+========================= */
+.mediaFrame{
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.12);
+  box-shadow: 0 44px 100px rgba(10,20,40,.18);
+  transform: translateZ(0);
+}
+
+.mediaFrame::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255,255,255,.18), transparent 46%),
+    linear-gradient(180deg, rgba(0,0,0,.08), transparent 38%);
+  pointer-events:none;
+}
+
+.mediaImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.01);
+}
+
+/* =========================
+   COPY
+========================= */
+.kicker{
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 3px;
+  color: rgba(0,0,0,.45);
+}
+
+.h2{
+  margin: 0 0 14px;
+  font-size: 42px;
+  line-height: 1.08;
+  font-weight: 1000;
+  color: #0b2147;
+  letter-spacing: -.3px;
+}
+
+.p{
+  margin: 0 0 14px;
+  line-height: 1.8;
+  color: rgba(0,0,0,.72);
+  font-size: 17px;
+}
+
+.p strong{
+  color: rgba(11,33,71,.95);
+  font-weight: 1000;
+}
+
+/* =========================
+   BULLETS — mais “clean / premium”
+========================= */
+.bullets{
+  margin: 18px 0 24px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.bullets li{
+  display:flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: rgba(0,0,0,.76);
+  font-size: 14.8px;
+  line-height: 1.6;
+}
+
+.bIcon{
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 1000;
+  font-size: 12px;
+  background: rgba(47,124,246,.12);
+  color: #2f7cf6;
+  flex: 0 0 26px;
+  box-shadow: 0 0 0 4px rgba(47,124,246,.10);
+}
+
+/* =========================
+   CTAs — com micro animação e profundidade
+========================= */
+.ctaRow{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.btnPrimary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 16px 26px;
+  font-size: 16px;
+  border-radius: 14px;
+  background: #c40000;
+  color:#fff;
+  font-weight: 1000;
+  text-decoration:none;
+  box-shadow:
+    0 22px 52px rgba(196,0,0,.22),
+    0 6px 16px rgba(0,0,0,.10);
+  transition: transform .18s ease, filter .18s ease;
+}
+
+.btnPrimary:hover{
+  transform: translateY(-2px);
+  filter: brightness(.99);
+}
+
+.btnGhost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 16px 26px;
+  font-size: 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.80);
+  color: #0b2147;
+  border: 1px solid rgba(0,0,0,.14);
+  font-weight: 1000;
+  text-decoration:none;
+  box-shadow: 0 14px 34px rgba(0,0,0,.06);
+  transition: transform .18s ease, background .18s ease;
+}
+
+.btnGhost:hover{
+  transform: translateY(-2px);
+  background:#f7f9fc;
+}
+
+/* Linha “nota” */
+.noteLine{
+  margin-top: 18px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  color: rgba(0,0,0,.64);
+  font-size: 13.8px;
+}
+
+.dot{
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #2f7cf6;
+  box-shadow: 0 0 0 4px rgba(47,124,246,.12);
+}
+
+/* =========================
+   DIVIDER + BOTTOM CTA
+========================= */
+.divider{
+  height: 1px;
+  background: rgba(15,30,60,.12);
+  margin: 34px 0 24px;
+}
+
+.bottomCta{
+  padding: 8px 0 0;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.h3{
+  margin:0 0 6px;
+  font-size: 20px;
+  font-weight: 1000;
+  color: #0b2147;
+  letter-spacing: -.2px;
+}
+
+.small{
+  margin:0;
+  color: rgba(0,0,0,.62);
+  font-size: 13.8px;
+  line-height: 1.65;
+}
+
+.btnGreen{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #2db34a;
+  color:#fff;
+  font-weight: 1000;
+  text-decoration:none;
+  box-shadow:
+    0 18px 40px rgba(45,179,74,.18),
+    0 6px 16px rgba(0,0,0,.08);
+  transition: transform .18s ease, filter .18s ease;
+}
+
+.btnGreen:hover{
+  transform: translateY(-2px);
+  filter: brightness(.99);
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 1200px){
+  .heroInner, .wrap{ padding: 0 28px; }
+  .heroTitle{ font-size: 46px; }
+  .cardShell{ padding: 44px; }
+  .twoCol{
+    grid-template-columns: 520px 1fr;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 980px){
+  .hero{ padding: 50px 0 38px; }
+  .heroTitle{ font-size: 34px; }
+  .cardShell{ padding: 22px; border-radius: 26px; }
+  .twoCol{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .h2{ font-size: 30px; }
+  .ctaRow{
+    flex-direction: column;
+  }
+  .btnPrimary, .btnGhost{ width: 100%; }
+  .bottomCta{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btnGreen{ width: 100%; }
+}

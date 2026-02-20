@@ -1,27 +1,25 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./consorcio.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "Consórcio | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Consórcio para carro, moto, imóvel e serviços. Planejamento sem juros, com atendimento consultivo e transparente da Urano Seguros.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function ConsorcioPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>Consórcio</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
-            <Link href="/para-voce">Para você</Link>
-            <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>Consórcio</span>
           </div>
         </div>
       </section>
@@ -31,12 +29,12 @@ export default function SeguroResidenciaPage() {
         <div className={styles.wrap}>
           <div className={styles.cardShell}>
             <div className={styles.twoCol}>
-              {/* LEFT (imagem) */}
+              {/* IMAGEM */}
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/consorcio.png"
+                    alt="Planejamento financeiro para conquistar carro ou imóvel com consórcio"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -45,39 +43,42 @@ export default function SeguroResidenciaPage() {
                 </div>
               </div>
 
-              {/* RIGHT (copy) */}
+              {/* COPY */}
               <div className={styles.copy}>
                 <p className={styles.kicker}>URANO SEGUROS</p>
 
-                <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
+                <h2 className={styles.h2}>
+                  Planeje sua conquista com parcelas que fazem sentido
+                </h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  O consórcio é uma forma de compra planejada para conquistar
+                  carro, moto, imóvel e até serviços — com organização financeira
+                  e possibilidade de contemplação por sorteio ou lance.
                 </p>
 
                 <p className={styles.p}>
-                  Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  Na Urano, você recebe atendimento humano e consultivo: a gente
+                  explica as regras com clareza e te ajuda a escolher o plano ideal
+                  para o seu objetivo e orçamento.
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Planos para automóvel, moto, imóvel e serviços
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Parcelas alinhadas ao seu planejamento
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Contemplação por sorteio ou lance (conforme regras)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Atendimento consultivo com explicações claras
                   </li>
                 </ul>
 
@@ -88,13 +89,13 @@ export default function SeguroResidenciaPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Fazer cotação no WhatsApp
+                    Simular no WhatsApp
                   </a>
                 </div>
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Me diga seu objetivo (carro, imóvel, etc.) e eu te indico o melhor plano.
                 </div>
               </div>
             </div>
@@ -102,17 +103,17 @@ export default function SeguroResidenciaPage() {
             {/* DIVISÓRIA */}
             <div className={styles.divider} />
 
-            {/* FAIXA COTAÇÃO ON-LINE */}
+            {/* CTA FINAL (igual padrão) */}
             <section className={styles.bottomCta}>
               <div className={styles.bottomLeft}>
-                <h3 className={styles.h3}>Cotação On-line</h3>
+                <h3 className={styles.h3}>Simulação rápida</h3>
                 <p className={styles.small}>
-                  Nosso sistema inteligente irá lhe oferecer as melhores opções.
+                  Envie seu objetivo e faixa de parcela para receber uma sugestão de plano.
                 </p>
               </div>
 
-              <Link className={styles.btnGreen} href="/cotacao-online">
-                Quero fazer uma cotação
+              <Link className={styles.btnGreen} href="/contato">
+                Falar com consultor
               </Link>
             </section>
           </div>

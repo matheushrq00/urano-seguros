@@ -1,27 +1,25 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./capitalizacao.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "Capitalização | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Capitalização como solução para planejamento, formação de reserva e participação em sorteios (conforme modalidade). Atendimento consultivo com a Urano Seguros.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function CapitalizacaoPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>Capitalização</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
-            <Link href="/para-voce">Para você</Link>
-            <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>Capitalização</span>
           </div>
         </div>
       </section>
@@ -31,12 +29,12 @@ export default function SeguroResidenciaPage() {
         <div className={styles.wrap}>
           <div className={styles.cardShell}>
             <div className={styles.twoCol}>
-              {/* LEFT (imagem) */}
+              {/* IMAGEM */}
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/capitalizacao.png"
+                    alt="Planejamento financeiro e formação de reserva em ambiente premium"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -45,39 +43,42 @@ export default function SeguroResidenciaPage() {
                 </div>
               </div>
 
-              {/* RIGHT (copy) */}
+              {/* COPY */}
               <div className={styles.copy}>
                 <p className={styles.kicker}>URANO SEGUROS</p>
 
-                <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
+                <h2 className={styles.h2}>
+                  Uma forma prática de planejar, formar reserva e participar de sorteios
+                </h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  A capitalização pode ser utilizada como uma solução para
+                  organização financeira e formação de reserva, com possibilidade
+                  de participação em sorteios conforme a modalidade contratada.
                 </p>
 
                 <p className={styles.p}>
-                  Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  Na Urano, você recebe orientação consultiva e transparente:
+                  explicamos como funciona cada opção e indicamos o que faz mais
+                  sentido para seu objetivo (pessoal ou empresarial).
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Opções para objetivos pessoais e empresariais
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Formação de reserva conforme regras do produto
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Participação em sorteios (conforme modalidade)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Atendimento consultivo com explicações claras
                   </li>
                 </ul>
 
@@ -88,31 +89,29 @@ export default function SeguroResidenciaPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Fazer cotação no WhatsApp
+                    Falar no WhatsApp
                   </a>
                 </div>
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Me diga seu objetivo e eu te mostro a melhor opção.
                 </div>
               </div>
             </div>
 
-            {/* DIVISÓRIA */}
             <div className={styles.divider} />
 
-            {/* FAIXA COTAÇÃO ON-LINE */}
             <section className={styles.bottomCta}>
               <div className={styles.bottomLeft}>
-                <h3 className={styles.h3}>Cotação On-line</h3>
+                <h3 className={styles.h3}>Orientação rápida</h3>
                 <p className={styles.small}>
-                  Nosso sistema inteligente irá lhe oferecer as melhores opções.
+                  Envie sua meta (reserva, garantia, planejamento) e receba uma indicação consultiva.
                 </p>
               </div>
 
-              <Link className={styles.btnGreen} href="/cotacao-online">
-                Quero fazer uma cotação
+              <Link className={styles.btnGreen} href="/contato">
+                Falar com consultor
               </Link>
             </section>
           </div>

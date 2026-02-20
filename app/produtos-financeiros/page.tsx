@@ -1,64 +1,36 @@
 import Link from "next/link";
-import styles from "./para-voce.module.css";
+import styles from "./produtos-financeiros.module.css";
 
 export const metadata = {
-  title: "Para Você | Urano Seguros",
+  title: "Produtos Financeiros | Urano Seguros",
   description:
-    "Seguro auto, vida, residência, saúde e mais. Atendimento consultivo e rápido. Faça sua cotação pelo WhatsApp.",
+    "Consórcio, financiamento e capitalização. Atendimento consultivo e rápido. Faça sua simulação pelo WhatsApp.",
 };
 
 const sections = [
   {
-    title: "Seguros do dia a dia",
-    desc: "Proteções essenciais para sua rotina, seu patrimônio e sua mobilidade.",
+    title: "Soluções para planejar e conquistar",
+    desc: "Produtos financeiros para organizar, realizar objetivos e ganhar previsibilidade.",
     items: [
-      { title: "Seguro Automóvel", href: "/seguro-auto" },
-      { title: "Seguro Moto", href: "/seguro-moto" },
-      { title: "Seguro Bicicleta", href: "/seguro-bicicleta" },
-      { title: "Seguro Residência", href: "/seguro-residencial" },
-      { title: "Seguro Viagem", href: "/seguro-viagem" },
-      { title: "Seguro Fiança Locatícia", href: "/seguro-fianca-locaticia" },
-    ],
-  },
-  {
-    title: "Proteção pessoal e familiar",
-    desc: "Planejamento e segurança financeira para você e sua família.",
-    items: [
-      { title: "Seguro Vida", href: "/seguro-vida" },
-      { title: "Acidentes Pessoais", href: "/acidentes-pessoais" },
-      { title: "Previdência Individual", href: "/previdencia-individual" },
-    ],
-  },
-  {
-    title: "Saúde e bens",
-    desc: "Coberturas e soluções para cuidar do que é mais importante.",
-    items: [
-      { title: "Seguro Saúde / Planos de Saúde", href: "/seguro-saude" },
-      { title: "Seguro Equipamentos", href: "/seguro-equipamentos" },
-    ],
-  },
-  {
-    title: "Seguros especiais",
-    desc: "Segmentos específicos com análise consultiva e proposta sob medida.",
-    items: [
-      { title: "Seguro Náutico", href: "/seguro-nautico" },
-      { title: "Seguro Aeronáutico", href: "/seguro-aeronautico" },
+      { title: "Consórcio", href: "/consorcio" },
+      { title: "Financiamento", href: "/financiamento" },
+      { title: "Capitalização", href: "/capitalizacao" },
     ],
   },
 ];
 
-export default function ParaVocePage() {
+export default function ProdutosFinanceirosPage() {
   return (
     <main className={styles.page}>
       {/* Banner */}
       <section className={styles.banner}>
         <div className={styles.bannerWrap}>
-          <h1 className={styles.bannerTitle}>Para Você</h1>
+          <h1 className={styles.bannerTitle}>Produtos Financeiros</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
-            <span>Para você</span>
+            <span>Produtos Financeiros</span>
           </div>
         </div>
       </section>
@@ -68,7 +40,7 @@ export default function ParaVocePage() {
         <div className={styles.wrap}>
           <header className={styles.intro}>
             <p className={styles.lead}>
-              Escolha o tipo de seguro ideal e peça sua cotação com atendimento humano e consultivo.
+              Escolha a solução ideal e peça sua simulação com atendimento humano e consultivo.
             </p>
 
             <div className={styles.ctaRow}>
@@ -78,7 +50,7 @@ export default function ParaVocePage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Cotar no WhatsApp
+                Simular no WhatsApp
               </a>
 
               <Link className={styles.ctaSecondary} href="/contato">
@@ -95,7 +67,7 @@ export default function ParaVocePage() {
                   <p className={styles.sectionDesc}>{sec.desc}</p>
                 </div>
 
-                <div className={`${styles.grid} ${sec.items.length === 2 ? styles.grid2 : ""}`}>
+                <div className={styles.grid}>
                   {sec.items.map((it) => (
                     <Link key={it.href + it.title} href={it.href} className={styles.card}>
                       <h3 className={styles.cardTitle}>{it.title}</h3>
@@ -109,10 +81,10 @@ export default function ParaVocePage() {
           </div>
 
           <aside className={styles.note}>
-            <h3 className={styles.noteTitle}>Não encontrou o que precisa?</h3>
+            <h3 className={styles.noteTitle}>Quer comparar opções e parcelas?</h3>
             <p className={styles.noteText}>
-              A Urano trabalha com diversas seguradoras e soluções sob medida. Fale com a gente e
-              montamos a melhor opção para o seu perfil.
+              A Urano trabalha com soluções e parceiros para encontrar o melhor caminho conforme seu objetivo, prazo e
+              perfil. Chame a gente e montamos a melhor proposta.
             </p>
             <a
               className="btnPrimary"

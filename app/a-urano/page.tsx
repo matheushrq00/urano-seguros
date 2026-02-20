@@ -1,27 +1,25 @@
 import Link from "next/link";
-import styles from "./seguro-residencial.module.css";
+import styles from "./a-urano.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Seguro Residência | Urano Seguros",
+  title: "A Urano | Urano Seguros",
   description:
-    "Seguro residência com coberturas sob medida, assistência 24h (conforme plano) e atendimento consultivo. Peça sua cotação com a Urano Seguros.",
+    "Conheça a Urano Seguros: corretora familiar fundada em 2018, com equipe experiente, atendimento humanizado e transparência. Limeira/SP, atendemos o Brasil inteiro.",
 };
 
-export default function SeguroResidenciaPage() {
+export default function AUranoPage() {
   return (
     <main className={styles.page}>
       {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <h1 className={styles.heroTitle}>Seguro Residência</h1>
+          <h1 className={styles.heroTitle}>A Urano Seguros</h1>
 
           <div className={styles.breadcrumb}>
             <Link href="/">Home</Link>
             <span className={styles.sep}>›</span>
-            <Link href="/para-voce">Para você</Link>
-            <span className={styles.sep}>›</span>
-            <span>Seguro Residência</span>
+            <span>A Urano</span>
           </div>
         </div>
       </section>
@@ -35,8 +33,8 @@ export default function SeguroResidenciaPage() {
               <div className={styles.media}>
                 <div className={styles.mediaFrame}>
                   <Image
-                    src="/images/seguro-residencial.png"
-                    alt="Família brasileira em casa moderna com sensação de proteção e tranquilidade"
+                    src="/images/a-urano.png"
+                    alt="Urano Seguros - atendimento consultivo e humanizado"
                     width={900}
                     height={900}
                     className={styles.mediaImg}
@@ -49,35 +47,40 @@ export default function SeguroResidenciaPage() {
               <div className={styles.copy}>
                 <p className={styles.kicker}>URANO SEGUROS</p>
 
-                <h2 className={styles.h2}>Consulte-nos e faça uma cotação!</h2>
+                <h2 className={styles.h2}>Confiança construída com transparência.</h2>
 
                 <p className={styles.p}>
-                  O seguro residência protege seu lar contra imprevistos como incêndio, roubo,
-                  danos elétricos e outros eventos — com coberturas sob medida para casa ou
-                  apartamento.
+                  A Urano Seguros é uma corretora familiar fundada em{" "}
+                  <strong>25/05/2018</strong>, em <strong>Limeira/SP</strong>.
+                  Unimos estrutura moderna e atendimento próximo — e hoje{" "}
+                  <strong>atendemos clientes em todo o Brasil</strong>.
                 </p>
 
                 <p className={styles.p}>
-                  Na Urano Seguros, você conta com atendimento humano e consultivo para escolher
-                  a melhor opção entre as principais seguradoras do mercado, com agilidade e clareza.
+                  Nosso diferencial é simples (e raro): aqui você entende o que
+                  está contratando. A gente explica de verdade, com{" "}
+                  <strong>áudios claros e bem detalhados</strong>, para você
+                  tomar decisões com segurança — sem “texto pronto” e sem
+                  enrolação.
                 </p>
 
                 <ul className={styles.bullets}>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Incêndio, raio e explosão (conforme plano)
+                    Empresa familiar, atendimento próximo e responsável
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Danos elétricos e quebras (conforme cobertura)
+                    Profissionais com{" "}
+                    <strong>mais de 30 anos de experiência</strong> em seguros
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Roubo/furto e responsabilidade civil (conforme plano)
+                    Transparência e explicação consultiva (com áudios)
                   </li>
                   <li>
                     <span className={styles.bIcon}>✓</span>
-                    Assistência 24h (chaveiro, encanador, eletricista) (conforme plano)
+                    Agilidade no WhatsApp e suporte do início ao fim
                   </li>
                 </ul>
 
@@ -88,13 +91,17 @@ export default function SeguroResidenciaPage() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Fazer cotação no WhatsApp
+                    Falar com a Urano no WhatsApp
                   </a>
+
+                  <Link className={styles.btnGhost} href="/para-voce">
+                    Ver seguros para você
+                  </Link>
                 </div>
 
                 <div className={styles.noteLine}>
                   <span className={styles.dot} />
-                  Proteja seu lar com um plano sob medida.
+                  Atendimento humano — para você contratar com clareza.
                 </div>
               </div>
             </div>
@@ -102,12 +109,13 @@ export default function SeguroResidenciaPage() {
             {/* DIVISÓRIA */}
             <div className={styles.divider} />
 
-            {/* FAIXA COTAÇÃO ON-LINE */}
+            {/* BLOCO “MISSÃO / VALORES” (sem inventar layout novo) */}
             <section className={styles.bottomCta}>
               <div className={styles.bottomLeft}>
-                <h3 className={styles.h3}>Cotação On-line</h3>
+                <h3 className={styles.h3}>Nosso compromisso</h3>
                 <p className={styles.small}>
-                  Nosso sistema inteligente irá lhe oferecer as melhores opções.
+                  Encontrar a melhor solução, explicar com clareza e acompanhar você
+                  até a contratação — e além.
                 </p>
               </div>
 
