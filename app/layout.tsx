@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import ContactFooter from "@/components/ContactFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Script from "next/script";
-
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,7 +15,9 @@ export const metadata: Metadata = {
     "Cote seguro auto, vida, residencial, empresarial, consórcio e mais com a Urano Seguros em Limeira.",
   icons: {
     icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -59,4 +60,3 @@ export default function RootLayout({
     </html>
   );
 }
-
