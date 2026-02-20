@@ -7,8 +7,6 @@ export default function sitemap() {
     { url: 'https://www.uranoseguros.com.br/produtos-financeiros' },
     { url: 'https://www.uranoseguros.com.br/faq' },
     { url: 'https://www.uranoseguros.com.br/contato' },
-    { url: 'https://www.uranoseguros.com.br/auto' },
-    { url: 'https://www.uranoseguros.com.br/vida' },
     { url: 'https://www.uranoseguros.com.br/consorcio' },
   ]
 }
