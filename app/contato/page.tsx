@@ -2,9 +2,9 @@ import Link from "next/link";
 import styles from "./contato.module.css";
 
 export const metadata = {
-  title: "Contato | Urano Seguros",
-  description:
-    "Fale com a Urano Seguros. Atendimento humanizado, transparente e consultivo. Matriz em Limeira/SP e atendimento em todo o Brasil.",
+  alternates: {
+    canonical: "/contato",
+  },
 };
 
 export default function ContatoPage() {

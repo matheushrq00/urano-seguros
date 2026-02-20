@@ -6,7 +6,13 @@ import ElectronicsSection from "@/components/ElectronicsSection";
 import Testimonials from "@/components/Testimonials";
 import Partners from "@/components/Partners";
 import Reveal from "@/components/Reveal";
+import type { Metadata } from "next";
 
+export const metadata = {
+  alternates: {
+    canonical: "/a-urano",
+  },
+};
 
 export default function Page() {
   return (

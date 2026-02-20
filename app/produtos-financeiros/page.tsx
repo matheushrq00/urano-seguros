@@ -2,9 +2,9 @@ import Link from "next/link";
 import styles from "./produtos-financeiros.module.css";
 
 export const metadata = {
-  title: "Produtos Financeiros | Urano Seguros",
-  description:
-    "Consórcio, financiamento e capitalização. Atendimento consultivo e rápido. Faça sua simulação pelo WhatsApp.",
+  alternates: {
+    canonical: "/produtos-financeiros",
+  },
 };
 
 const sections = [

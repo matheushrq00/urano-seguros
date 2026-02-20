@@ -2,9 +2,9 @@ import Link from "next/link";
 import styles from "./para-empresas.module.css";
 
 export const metadata = {
-  title: "Para Empresas | Urano Seguros",
-  description:
-    "Seguro empresarial, frota, cargas, responsabilidade civil, vida em grupo e benefícios. Atendimento consultivo e rápido. Faça sua cotação pelo WhatsApp.",
+  alternates: {
+    canonical: "/para-empresas",
+  },
 };
 
 const sections = [

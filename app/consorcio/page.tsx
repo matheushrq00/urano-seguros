@@ -3,9 +3,9 @@ import styles from "./consorcio.module.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Consórcio | Urano Seguros",
-  description:
-    "Consórcio para carro, moto, imóvel e serviços. Planejamento sem juros, com atendimento consultivo e transparente da Urano Seguros.",
+  alternates: {
+    canonical: "/consorcio",
+  },
 };
 
 export default function ConsorcioPage() {

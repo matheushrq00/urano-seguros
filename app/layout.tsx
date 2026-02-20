@@ -4,11 +4,16 @@ import ContactFooter from "@/components/ContactFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Script from "next/script";
 
-export const metadata = {
-  metadataBase: new URL("https://www.uranoseguros.com.br"),
-  title: "Urano Seguros",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://uranoseguros.com.br"),
+  title: {
+    default: "Urano Seguros",
+    template: "%s | Urano Seguros",
+  },
   description:
-    "Cote seguro auto, vida, residencial, empresarial, consórcio e mais com a Urano Seguros.",
+    "Cote seguro auto, vida, residencial, empresarial, consórcio e mais com a Urano Seguros em Limeira.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -54,3 +59,4 @@ export default function RootLayout({
     </html>
   );
 }
+

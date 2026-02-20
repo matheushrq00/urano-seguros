@@ -1,10 +1,23 @@
 import Link from "next/link";
 import styles from "./para-voce.module.css";
 
-export const metadata = {
-  title: "Para Você | Urano Seguros",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Para Você",
   description:
-    "Seguro auto, vida, residência, saúde e mais. Atendimento consultivo e rápido. Faça sua cotação pelo WhatsApp.",
+    "Seguro auto, vida, residencial, saúde e mais. Atendimento consultivo e rápido. Faça sua cotação pelo WhatsApp.",
+  alternates: {
+    canonical: "/para-voce",
+  },
+  openGraph: {
+    title: "Para Você | Urano Seguros",
+    description:
+      "Seguro auto, vida, residencial, saúde e mais. Atendimento consultivo e rápido. Faça sua cotação pelo WhatsApp.",
+    url: "/para-voce",
+    siteName: "Urano Seguros",
+    type: "website",
+  },
 };
 
 const sections = [
@@ -128,3 +141,4 @@ export default function ParaVocePage() {
     </main>
   );
 }
+
