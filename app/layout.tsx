@@ -4,6 +4,12 @@ import ContactFooter from "@/components/ContactFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Script from "next/script";
 import type { Metadata } from "next";
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://uranoseguros.com.br"),
@@ -13,6 +19,7 @@ export const metadata: Metadata = {
   },
   description:
     "Cote seguro auto, vida, residencial, empresarial, consórcio e mais com a Urano Seguros em Limeira.",
+    themeColor: "#0d1f3c",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",

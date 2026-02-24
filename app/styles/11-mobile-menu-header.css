@@ -55,3 +55,446 @@
   transform:translateY(-1px);
 }
 .logoCenter{justify-self:center;}
+
+/* =========================
+   MOBILE: remover barra preta (top strip)
+========================= */
+@media (max-width: 980px){
+  .topStrip,
+  .topStripInner{
+    display:none !important;
+  }
+}
+
+/* =========================
+   MOBILE: header compacto (só CTA + 3 pontinhos)
+========================= */
+@media (max-width: 980px){
+
+  /* esconde o menu de links (barra branca com itens) */
+  .desktopMenu,
+  .navInner{
+    display:none !important;
+  }
+
+  /* mostra o botão do menu (3 pontinhos) */
+  .mobileMenuBtn{
+    display:grid !important;
+  }
+
+  /* mantém só o CTA visível do lado direito */
+  .headerRight{
+    display:flex !important;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
+  }
+
+  /* garante que o CTA aparece */
+  .ctaBtn{
+    display:inline-flex !important;
+  }
+}
+@media (max-width: 980px){
+  .mobileMenu{ display:none !important; }
+}
+@media (max-width: 980px){
+  .brandInner{
+    background:transparent !important;
+  }
+}
+@media (max-width: 980px){
+
+  .brandInner{
+    padding:8px 0 !important;
+  }
+
+  .logo{
+    height:42px; /* antes era 48px */
+  }
+
+}
+@media (max-width: 980px){
+
+  .brandInner{
+    backdrop-filter: blur(6px);
+    background:rgba(255,255,255,0.85);
+    border-bottom:1px solid #f1f1f1;
+  }
+
+}
+@media (max-width: 980px){
+  .logoLink,
+  .logoLink * {
+    background: transparent !important;
+  }
+
+  .logoLink{
+    padding:0 !important;
+    margin:0 !important;
+    line-height:0 !important;
+  }
+
+  .logo{
+    background: transparent !important;
+    display:block !important;
+  }
+}
+/* =========================================
+   MOBILE: CTA central + menu sempre visível à direita
+========================================= */
+@media (max-width: 980px){
+
+  .brandInner{
+    position: relative !important;
+    padding: 10px 12px !important;
+    min-height: 64px !important;
+  }
+
+  /* deixa o lado direito fixo e dentro do header */
+  .headerRight{
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    z-index: 30 !important;
+  }
+
+  /* garante espaço pro logo (não empurra) */
+  .logoLink{
+    position: relative !important;
+    z-index: 30 !important;
+  }
+
+  /* CTA no centro e NÃO pode cobrir o menu */
+  .brandInner .ctaBtn{
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 10 !important;
+
+    max-width: calc(100% - 160px) !important; /* reserva espaço p/ logo+menu */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  /* botão do menu: sempre 44px */
+  .mobileMenuBtn{
+    display: grid !important;
+    place-items: center !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    margin: 0 !important;
+  }
+}
+/* =========================================
+   FORCE: centralizar CTA no mobile
+========================================= */
+@media (max-width: 980px){
+
+  /* garante referência para o absolute */
+  .brandInner{
+    position: relative !important;
+  }
+
+  /* tira qualquer posicionamento estranho do container da direita */
+  .headerRight{
+    position: static !important;
+    transform: none !important;
+    right: auto !important;
+    left: auto !important;
+  }
+
+  /* FORÇA o CTA pro centro (mesmo se outras regras mexerem nele) */
+  .brandInner .ctaBtn{
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    right: auto !important;
+
+    z-index: 10 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* mantém o menu clicável no canto direito */
+  .mobileMenuBtn{
+    position: relative !important;
+    z-index: 20 !important;
+  }
+}
+@media (max-width: 980px){
+  .brandInner .ctaBtn{
+    float: none !important;
+  }
+}
+/* =========================================
+   MOBILE: CTA central + menu sempre visível à direita
+========================================= */
+@media (max-width: 980px){
+
+  .brandInner{
+    position: relative !important;
+    padding: 10px 12px !important;
+    min-height: 64px !important;
+  }
+
+  /* deixa o lado direito fixo e dentro do header */
+  .headerRight{
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    z-index: 30 !important;
+  }
+
+  /* garante espaço pro logo (não empurra) */
+  .logoLink{
+    position: relative !important;
+    z-index: 30 !important;
+  }
+
+  /* CTA no centro e NÃO pode cobrir o menu */
+  .brandInner .ctaBtn{
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 10 !important;
+
+    max-width: calc(100% - 160px) !important; /* reserva espaço p/ logo+menu */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  /* botão do menu: sempre 44px */
+  .mobileMenuBtn{
+    display: grid !important;
+    place-items: center !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    margin: 0 !important;
+  }
+}
+@media (max-width: 430px){
+  .brandInner{ padding: 8px 10px !important; }
+  .headerRight{ right: 10px !important; }
+  .brandInner .ctaBtn{
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    max-width: calc(100% - 150px) !important;
+  }
+}
+@media (max-width: 980px){
+
+  /* header base */
+  .brandInner{
+    position: relative !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+
+    background:#fff !important;
+    padding:10px 12px !important;
+    min-height:64px !important;
+    border-bottom:1px solid #f1f1f1 !important;
+    box-sizing:border-box !important;
+    overflow: visible !important;
+  }
+
+  /* logo */
+  .logoLink{ line-height:0 !important; z-index:5 !important; }
+  .logo{ height:40px !important; width:auto !important; display:block !important; }
+
+  /* menu sempre no canto direito */
+  .headerRight{
+    position:absolute !important;
+    right:12px !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    z-index:6 !important;
+
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+  }
+
+  /* botão do menu com cara de menu (não bolinha estranha) */
+  .mobileMenuBtn{
+    display:grid !important;
+    place-items:center !important;
+    width:44px !important;
+    height:44px !important;
+    min-width:44px !important;
+    border-radius:12px !important;
+    background:transparent !important;
+    border:1px solid #e5e7eb !important;
+    color:#111 !important;
+    padding:0 !important;
+  }
+
+  /* CTA central: NÃO pode herdar estilos de ícone */
+  .brandInner .ctaBtn{
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+    transform:translate(-50%, -50%) !important;
+    z-index:4 !important;
+
+    width:auto !important;
+    max-width:none !important;
+    min-width: 140px !important;
+
+    padding:10px 14px !important;
+    border-radius:16px !important;
+    font-size:14px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+
+    overflow: visible !important;
+  }
+
+  /* esconde o CTA duplicado se ele estiver dentro do headerRight */
+  .headerRight .ctaBtn{
+    display:none !important;
+  }
+}
+
+/* ajuste extra p/ telas menores */
+@media (max-width: 430px){
+  .brandInner{ padding:8px 10px !important; }
+  .brandInner .ctaBtn{ font-size:12px !important; padding:8px 12px !important; min-width: 120px !important; }
+  .headerRight{ right:10px !important; }
+}
+/* =========================
+   Header (base)
+========================= */
+.mobileMenuBtn{
+  display:none;
+  background:transparent;
+  color:#111;
+  border:1px solid #e5e7eb;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  font-size:20px;
+  font-weight:900;
+  cursor:pointer;
+}
+.desktopMenu{display:flex; gap:18px; flex-wrap:wrap; align-items:center;}
+.mobileMenu{display:none;}
+
+
+/* =========================
+   MOBILE HEADER FINAL
+   logo esquerda | CTA centro | menu direita
+========================= */
+@media (max-width: 980px){
+
+  /* remove barra preta */
+  .topStrip,
+  .topStripInner{ display:none !important; }
+
+  /* esconde menus/links */
+  .desktopMenu,
+  .navInner,
+  .mobileMenu{ display:none !important; }
+
+  /* header */
+  .brandInner{
+    position:relative !important;
+    display:grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items:center !important;
+    gap:10px !important;
+
+    background:#fff !important;
+    padding:10px 12px !important;
+    min-height:64px !important;
+    border-bottom:1px solid #f1f1f1 !important;
+
+    box-sizing:border-box !important;
+    overflow:visible !important;
+  }
+
+  /* LOGO: trava área clicável (não pode virar “tap zone” gigante) */
+  .logoLink{
+    justify-self:start !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    width:auto !important;
+    max-width:max-content !important;
+    padding:0 !important;
+    margin:0 !important;
+    line-height:0 !important;
+    background:transparent !important;
+    z-index:2 !important;
+  }
+
+  .logo{
+    display:block !important;
+    height:40px !important;
+    width:auto !important;
+    max-width:160px !important;
+    object-fit:contain !important;
+    pointer-events:none !important; /* clique fica só no link */
+  }
+
+  /* CTA: centralizado de verdade */
+  .ctaBtnCenter{
+    justify-self:center !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    z-index:5 !important;
+
+    padding:10px 14px !important;
+    border-radius:16px !important;
+    font-size:14px !important;
+    white-space:nowrap !important;
+  }
+
+  /* DIREITA: menu sempre visível */
+  .headerRight{
+    justify-self:end !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    z-index:6 !important;
+  }
+
+  .mobileMenuBtn{
+    display:grid !important;
+    place-items:center !important;
+    width:44px !important;
+    min-width:44px !important;
+    height:44px !important;
+    border-radius:12px !important;
+    background:transparent !important;
+    border:1px solid #e5e7eb !important;
+    padding:0 !important;
+  }
+}
+
+/* Ajuste iPhones menores */
+@media (max-width: 430px){
+  .brandInner{ padding:8px 10px !important; min-height:60px !important; }
+  .logo{ height:50px !important; max-width:140px !important; }
+  .ctaBtnCenter{ padding:8px 12px !important; font-size:12px !important; }
+}

@@ -33,7 +33,7 @@
   width:100%;
   border-radius:0;         /* full width */
   overflow:hidden;
-  background:#0b0b0b;       /* fallback anti-branco */
+  background:#111;       /* fallback anti-branco */
   box-shadow:var(--shadow);
   touch-action: pan-y;
 }
@@ -109,5 +109,29 @@
 .slidesViewport{
   height:660px;
   overflow:hidden;
-  background:#0b0b0b;
+  background:#111;
+}
+/* Overlay elegante só no lado do texto */
+.slide{
+  position:relative;
+}
+
+.slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,.55) 0%,
+    rgba(0,0,0,.35) 40%,
+    rgba(0,0,0,.10) 70%,
+    rgba(0,0,0,0) 100%
+  );
+  z-index:1;
+}
+
+/* garante que o conteúdo fique acima do overlay */
+.slideContent{
+  position:relative;
+  z-index:2;
 }

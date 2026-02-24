@@ -73,136 +73,55 @@ export default function Header() {
         </div>
       </div>
 
-      {/* ===== HEADER PRINCIPAL (logo + menu no branco) ===== */}
+            {/* ===== HEADER PRINCIPAL (logo + menu no branco) ===== */}
       <div className="brandRow">
         <div className="container brandInner">
-          {/* Logo à esquerda */}
+
+          {/* Logo */}
           <Link href="/" aria-label="Urano Seguros" className="logoLink">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo.png" alt="Urano Seguros" className="logo" />
           </Link>
 
-          {/* Menu desktop (igual Pedersen) */}
+          {/* Menu desktop */}
           <nav className="nav" aria-label="Menu principal">
             <div className="navInner desktopMenu">
-              <Link className="navItem" href="/">
-                <span className="navLink">Home</span>
-              </Link>
-
-              <Link className="navItem" href="/a-urano">
-                <span className="navLink">A Urano</span>
-              </Link>
-
-              <div className="navItem">
-  <Link className="navLink" href="/para-voce">
-    Para você
-  </Link>
-</div>
-
-<div className="navItem">
-  <Link className="navLink" href="/para-empresas">
-    Para empresas
-  </Link>
-</div>
-
-<div className="navItem">
-  <Link className="navLink" href="/produtos-financeiros">
-    Produtos Financeiros
-  </Link>
-</div>
-
-              <Link className="navItem" href="/faq">
-                <span className="navLink">F.A.Q</span>
-              </Link>
-
-              <Link className="navItem" href="/contato">
-                <span className="navLink">Contato</span>
-              </Link>
+              <Link className="navItem" href="/">Home</Link>
+              <Link className="navItem" href="/a-urano">A Urano</Link>
+              <Link className="navItem" href="/para-voce">Para você</Link>
+              <Link className="navItem" href="/para-empresas">Para empresas</Link>
+              <Link className="navItem" href="/produtos-financeiros">Produtos Financeiros</Link>
+              <Link className="navItem" href="/faq">F.A.Q</Link>
+              <Link className="navItem" href="/contato">Contato</Link>
             </div>
           </nav>
 
-          {/* CTA + menu mobile */}
-          <div className="headerRight">
-            <Link className="ctaBtn" href="/#cotacao">
-              Cote Grátis
-            </Link>
+          {/* CTA */}
+          <Link className="ctaBtn" href="/#cotacao">
+            Cote Grátis
+          </Link>
 
-            <button
-              className="mobileMenuBtn"
-              onClick={() => setMobileOpen((v) => !v)}
-              aria-expanded={mobileOpen}
-              aria-label="Abrir menu"
-              type="button"
-            >
-              ☰
-            </button>
-          </div>
+          {/* Botão mobile */}
+          <button
+            className="mobileMenuBtn"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-expanded={mobileOpen}
+            aria-label="Abrir menu"
+            type="button"
+          >
+            ☰
+          </button>
+
         </div>
 
-        {/* ===== MENU MOBILE (novo) ===== */}
-        <div className={`container mobileMenu ${mobileOpen ? "open" : ""}`}>
-          <Link className="mLink" href="/" onClick={() => setMobileOpen(false)}>
-            Home
-          </Link>
-          <Link className="mLink" href="/a-urano" onClick={() => setMobileOpen(false)}>
-            A Urano
-          </Link>
-
-          <div className="mGroup">
-            <div className="mTitle">Para você</div>
-            <Link className="mSub" href="/seguro-auto" onClick={() => setMobileOpen(false)}>
-              Auto / Moto
-            </Link>
-            <Link className="mSub" href="/seguro-residencial" onClick={() => setMobileOpen(false)}>
-              Residencial
-            </Link>
-            <Link className="mSub" href="/seguro-vida" onClick={() => setMobileOpen(false)}>
-              Vida
-            </Link>
-            <Link className="mSub" href="/planos-de-saude" onClick={() => setMobileOpen(false)}>
-              Planos de Saúde
-            </Link>
-            <Link className="mSub" href="/seguros-eletronicos" onClick={() => setMobileOpen(false)}>
-              Eletrônicos
-            </Link>
-          </div>
-
-          <div className="mGroup">
-            <div className="mTitle">Para empresas</div>
-            <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
-              Seguro Empresarial
-            </Link>
-            <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
-              Frotas
-            </Link>
-            <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
-              Responsabilidade Civil
-            </Link>
-            <Link className="mSub" href="/seguro-empresarial" onClick={() => setMobileOpen(false)}>
-              Transportes e Cargas
-            </Link>
-          </div>
-
-          <div className="mGroup">
-            <div className="mTitle">Produtos Financeiros</div>
-            <Link className="mSub" href="/consorcio/auto" onClick={() => setMobileOpen(false)}>
-              Consórcio Auto
-            </Link>
-            <Link className="mSub" href="/consorcio/imobiliario" onClick={() => setMobileOpen(false)}>
-              Consórcio Imobiliário
-            </Link>
-            <Link className="mSub" href="/consorcio" onClick={() => setMobileOpen(false)}>
-              Financiamento
-            </Link>
-          </div>
-
-          <Link className="mLink" href="/faq" onClick={() => setMobileOpen(false)}>
-            F.A.Q
-          </Link>
-
-          <Link className="mLink" href="/contato" onClick={() => setMobileOpen(false)}>
-            Contato
-          </Link>
+        {/* ===== MENU MOBILE SIMPLIFICADO ===== */}
+        <div className={`mobileMenu ${mobileOpen ? "open" : ""}`}>
+          <Link className="mLink" href="/" onClick={() => setMobileOpen(false)}>Home</Link>
+          <Link className="mLink" href="/a-urano" onClick={() => setMobileOpen(false)}>A Urano</Link>
+          <Link className="mLink" href="/para-voce" onClick={() => setMobileOpen(false)}>Para você</Link>
+          <Link className="mLink" href="/para-empresas" onClick={() => setMobileOpen(false)}>Para empresas</Link>
+          <Link className="mLink" href="/produtos-financeiros" onClick={() => setMobileOpen(false)}>Produtos Financeiros</Link>
+          <Link className="mLink" href="/faq" onClick={() => setMobileOpen(false)}>F.A.Q</Link>
+          <Link className="mLink" href="/contato" onClick={() => setMobileOpen(false)}>Contato</Link>
         </div>
       </div>
     </>
