@@ -1,3 +1,4 @@
+import SchemaAuto from "@/components/SchemaAuto";
 export const metadata = {
   title: "Seguro Onix para motorista novo é caro? Veja como pagar menos",
   description:

@@ -1,4 +1,5 @@
 import SchemaAuto from "@/components/SchemaAuto";
+
 export const metadata = {
   title: "Seguro Amarok em Limeira | Cotação com Melhor Preço",
   description:

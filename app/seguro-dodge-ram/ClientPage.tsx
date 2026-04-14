@@ -1,5 +1,6 @@
-import SchemaAuto from "@/components/SchemaAuto";
 "use client";
+
+import SchemaAuto from "@/components/SchemaAuto";
 
 import React, { useEffect } from "react";
 

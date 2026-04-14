@@ -1,3 +1,4 @@
+import SchemaAuto from "@/components/SchemaAuto";
 export const metadata = {
   title: "Seguro Corolla em Limeira | Cotação rápida e até 30% mais barato",
   description:
@@ -7,6 +8,8 @@ export const metadata = {
 export default function Page() {
   return (
     <main style={{ background: "#f5f7fa" }}>
+
+        <SchemaAuto carName="Toyota Corolla" />
 
       {/* HERO */}
       <section style={container}>

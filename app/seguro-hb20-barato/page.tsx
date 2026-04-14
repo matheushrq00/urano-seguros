@@ -1,3 +1,4 @@
+import SchemaAuto from "@/components/SchemaAuto";
 export const metadata = {
   title: "Seguro HB20 barato em Limeira com até 30% OFF | Cotação rápida",
   description:
@@ -7,6 +8,8 @@ export const metadata = {
 export default function Page() {
   return (
     <main style={{ background: "#f5f7fa" }}>
+
+        <SchemaAuto carName="HB20" />
 
       {/* HERO */}
       <section style={container}>

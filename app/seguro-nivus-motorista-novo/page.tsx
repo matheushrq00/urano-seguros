@@ -1,3 +1,4 @@
+import SchemaAuto from "@/components/SchemaAuto";
 export const metadata = {
   title: "Seguro Nivus para motorista novo é caro? Veja como pagar menos",
   description:
@@ -7,6 +8,8 @@ export const metadata = {
 export default function Page() {
   return (
     <main style={{ background: "#f5f7fa" }}>
+        
+        <SchemaAuto carName="Nivus" />
 
       {/* HERO */}
       <section style={container}>

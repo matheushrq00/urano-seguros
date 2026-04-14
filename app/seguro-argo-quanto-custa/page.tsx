@@ -1,3 +1,4 @@
+import SchemaAuto from "@/components/SchemaAuto";
 export const metadata = {
   title: "Quanto custa o seguro do Argo em Limeira? Veja valores atualizados",
   description:
@@ -7,6 +8,8 @@ export const metadata = {
 export default function Page() {
   return (
     <main style={{ background: "#f5f7fa" }}>
+
+        <SchemaAuto carName="Fiat Argo" />
 
       {/* HERO */}
       <section style={container}>

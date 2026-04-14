@@ -1,3 +1,4 @@
+import SchemaAuto from "@/components/SchemaAuto";
 export const metadata = {
   title: "Seguro T-Cross em Limeira | Cotação rápida e até 30% mais barato",
   description:

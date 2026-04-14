@@ -1,3 +1,4 @@
+import SchemaAuto from "@/components/SchemaAuto";
 export const metadata = {
   title: "Seguro Onix em Limeira | Cotação com até 30% de Desconto",
   description:

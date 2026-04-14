@@ -1,3 +1,4 @@
+import SchemaAuto from "@/components/SchemaAuto";
 export const metadata = {
   title: "Quanto custa o seguro do Creta em Limeira? Veja preços e economize até 30%",
   description:
@@ -7,6 +8,8 @@ export const metadata = {
 export default function Page() {
   return (
     <main style={{ background: "#f5f7fa" }}>
+
+        <SchemaAuto carName="Hyundai Creta" />
 
       {/* HERO */}
       <section style={container}>
