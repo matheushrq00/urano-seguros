@@ -1,179 +1,179 @@
-import SchemaAuto from "@/components/SchemaAuto";
-export const metadata = {
-  title: "Seguro Onix em Limeira | Cotação com até 30% de Desconto",
-  description:
-    "Seguro para Chevrolet Onix em Limeira com melhor preço. Compare seguradoras e faça sua cotação rápida pelo WhatsApp.",
-};
+"use client";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
 
 export default function Page() {
+
+  const [clients, setClients] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const end = 2400;
+    const duration = 1200;
+    const increment = end / (duration / 16);
+
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setClients(end);
+        clearInterval(timer);
+      } else {
+        setClients(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // 🔥 EFEITO APPLE HERO (PARALLAX)
+  useEffect(() => {
+    const handleScroll = () => {
+      const hero = document.getElementById("hero-img");
+      if (!hero) return;
+
+      const scrollY = window.scrollY;
+      hero.style.transform = `scale(${1 + scrollY * 0.0004}) translateY(${scrollY * 0.2}px)`;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const whatsappLink =
+    "https://wa.me/5519998722063?text=Olá,%20vim%20pelo%20site%20e%20quero%20uma%20cotação%20de%20seguro%20para%20Onix%20em%20Limeira";
+
   return (
-    <main style={{ background: "#f5f7fa" }}>
+    <main style={main}>
 
-        <SchemaAuto carName="Onix" />
+      {/* HERO APPLE */}
+      <section style={hero}>
 
-      {/* HERO */}
-      <section style={container}>
-        <h1>Seguro Onix em Limeira com Melhor Preço</h1>
+        <Image
+          id="hero-img"
+          src="/images/onix-hero.jpg"
+          alt="Seguro Onix em Limeira"
+          fill
+          priority
+          style={heroImg}
+        />
 
-        <p style={highlight}>
-          ✔️ Seguro completo para Chevrolet Onix <br />
-          ✔️ Compare seguradoras e economize até 30% <br />
-          ✔️ Cotação rápida e sem compromisso
-        </p>
+        <div style={overlay} />
 
-        <p>
-          Se você tem um <strong>Chevrolet Onix</strong> e quer proteger seu carro,
-          fazer um seguro é essencial para evitar prejuízos com roubo, colisões e
-          danos a terceiros.
-        </p>
+        <div style={heroContent}>
+          <h1 style={title}>
+            Seguro Onix em Limeira com até 30% de desconto
+          </h1>
 
-        <p>
-          Aqui você pode fazer sua cotação de <strong>seguro Onix em Limeira</strong>,
-          comparar várias seguradoras e encontrar a melhor opção com excelente custo-benefício.
-        </p>
+          <p style={subtitle}>
+            Compare seguradoras e receba sua cotação em minutos.
+          </p>
 
-        <a href="https://wa.me/5519998722063" target="_blank" style={btn}>
-          🚀 Ver preço do meu seguro Onix
-        </a>
+          <a href={whatsappLink} style={btnPrimary}>
+            Fazer cotação agora
+          </a>
+        </div>
+      </section>
+
+      {/* PROVA SOCIAL (CORRIGIDA) */}
+      <section style={proofSection}>
+        <div style={proofContainer}>
+
+          <div style={proofCard}>
+            <span style={proofIcon}>⭐</span>
+            <strong style={proofNumber}>+{clients.toLocaleString()}</strong>
+            <p style={proofText}>clientes atendidos</p>
+          </div>
+
+          <div style={proofCard}>
+            <span style={proofIcon}>⚡</span>
+            <strong style={proofNumber}>Minutos</strong>
+            <p style={proofText}>para cotação</p>
+          </div>
+
+          <div style={proofCard}>
+            <span style={proofIcon}>💰</span>
+            <strong style={proofNumber}>Até 30%</strong>
+            <p style={proofText}>de economia</p>
+          </div>
+
+        </div>
       </section>
 
       {/* PREÇO */}
       <section style={container}>
-        <h2>Quanto custa o seguro do Onix em Limeira?</h2>
+        <div style={priceBox}>
+          <h2>Quanto custa o seguro do Onix em Limeira?</h2>
 
-        <p>
-          O valor do seguro pode variar entre <strong>R$ 1.200 e R$ 3.200 por ano</strong>,
-          dependendo do perfil do motorista, ano do veículo e região.
-        </p>
+          <p>
+            O valor pode variar entre <strong>R$ 1.200 e R$ 3.200 por ano</strong>.
+          </p>
 
-        <p>
-          Por ser um carro muito popular, o Onix tem grande procura no mercado,
-          o que influencia diretamente no valor do seguro.
-        </p>
-
-        <p><strong>👉 Quer saber o valor exato no seu caso?</strong></p>
-
-        <a href="https://wa.me/5519998722063" target="_blank" style={btnSmall}>
-          👉 Ver valor do meu seguro agora
-        </a>
-      </section>
-
-      {/* COMO FUNCIONA */}
-      <section style={container}>
-        <h2>Como funciona a cotação do seguro Onix?</h2>
-
-        <div style={grid}>
-          <div style={card}>1️⃣ Envie seus dados</div>
-          <div style={card}>2️⃣ Analisamos seu perfil</div>
-          <div style={card}>3️⃣ Cotamos nas seguradoras</div>
-          <div style={card}>4️⃣ Você escolhe a melhor opção</div>
+          <a href={whatsappLink} style={btnPrimary}>
+            Ver valor exato
+          </a>
         </div>
-
-        <p>
-          Em poucos minutos você já pode comparar preços e coberturas para seu Onix.
-        </p>
       </section>
 
-      {/* COBERTURA */}
+      {/* BLOCO PREMIUM */}
+      <section style={highlightSection}>
+        <div style={highlightContainer}>
+
+          <div>
+            <h2 style={highlightTitle}>
+              Seguro rápido, simples e sem burocracia
+            </h2>
+
+            <p style={highlightDesc}>
+              Compare seguradoras em poucos minutos e escolha a melhor opção
+              para o seu perfil com total segurança.
+            </p>
+
+            <ul style={highlightList}>
+              <li>✔ Cotação em minutos</li>
+              <li>✔ Atendimento no WhatsApp</li>
+              <li>✔ Melhor preço garantido</li>
+              <li>✔ Sem compromisso</li>
+            </ul>
+
+            <a href={whatsappLink} style={btnPrimary}>
+              Falar agora
+            </a>
+          </div>
+
+          <div style={imageWrapper}>
+            <Image
+              src="/images/whatsapp-cotacao-onix.png"
+              alt="Cotação de seguro pelo WhatsApp"
+              width={900}
+              height={900}
+              style={highlightImage}
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* BENEFÍCIOS */}
       <section style={container}>
-        <h2>O que o seguro do Onix cobre?</h2>
+        <h2>O que o seguro cobre?</h2>
 
         <div style={grid}>
           <div style={card}>🚗 Roubo e furto</div>
           <div style={card}>💥 Colisão</div>
           <div style={card}>👥 Danos a terceiros</div>
-          <div style={card}>🛠️ Assistência 24h</div>
+          <div style={card}>🛠 Assistência 24h</div>
         </div>
-
-        <p>
-          Também é possível incluir coberturas adicionais conforme sua necessidade.
-        </p>
-      </section>
-
-      {/* FATORES */}
-      <section style={container}>
-        <h2>O que influencia o preço do seguro Onix?</h2>
-
-        <ul>
-          <li>Idade do motorista</li>
-          <li>Ano e versão do Onix</li>
-          <li>Região onde o carro circula</li>
-          <li>Histórico de sinistros</li>
-          <li>Perfil de uso</li>
-        </ul>
-
-        <p>
-          Cada detalhe pode impactar no valor final do seguro.
-        </p>
-      </section>
-
-      {/* ECONOMIA */}
-      <section style={container}>
-        <h2>Como pagar mais barato no seguro Onix?</h2>
-
-        <div style={grid}>
-          <div style={card}>📊 Comparar seguradoras</div>
-          <div style={card}>🛠 Ajustar cobertura</div>
-          <div style={card}>📉 Escolher franquia ideal</div>
-          <div style={card}>👨‍💼 Análise personalizada</div>
-        </div>
-
-        <p>
-          Nós fazemos todo esse processo para garantir o melhor preço para você.
-        </p>
-      </section>
-
-      {/* BENEFÍCIOS */}
-      <section style={container}>
-        <h2>Vale a pena fazer seguro para Onix?</h2>
-
-        <p>
-          Sim. Por ser um dos carros mais vendidos do Brasil, o Onix também é um
-          dos mais visados para roubo e furto.
-        </p>
-
-        <p>
-          O seguro garante proteção financeira e mais tranquilidade no dia a dia.
-        </p>
-      </section>
-
-      {/* PROVA SOCIAL */}
-      <section style={container}>
-        <h2>Mais de 2.400 clientes já confiaram</h2>
-
-        <p>
-          Já ajudamos milhares de clientes em Limeira a encontrar o melhor seguro
-          com economia e atendimento rápido.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section style={container}>
-        <h2>Perguntas frequentes</h2>
-
-        <h3>Seguro Onix é caro?</h3>
-        <p>Depende do perfil, mas geralmente tem bom custo-benefício.</p>
-
-        <h3>Posso parcelar?</h3>
-        <p>Sim, em até 12x.</p>
-
-        <h3>Seguro cobre perda total?</h3>
-        <p>Sim, dependendo da cobertura escolhida.</p>
-
-        <h3>Demora para contratar?</h3>
-        <p>Não, o processo é rápido e simples.</p>
       </section>
 
       {/* CTA FINAL */}
-      <section style={container}>
-        <h2 style={{ color: "red" }}>⚠️ Condições especiais disponíveis</h2>
+      <section style={cta}>
+        <h2 style={{ fontSize: "32px" }}>Receba sua cotação agora</h2>
+        <p>Leva menos de 2 minutos</p>
 
-        <p style={{ fontWeight: "bold" }}>
-          Aproveite agora e faça sua cotação antes que os valores mudem.
-        </p>
-
-        <a href="https://wa.me/5519998722063" target="_blank" style={btn}>
-          👉 Falar com especialista agora
+        <a href={whatsappLink} style={btnBig}>
+          Falar com especialista
         </a>
       </section>
 
@@ -181,51 +181,169 @@ export default function Page() {
   );
 }
 
-/* estilos */
-const container = {
+/* ESTILOS */
+
+const main: CSSProperties = {
+  fontFamily: "Inter, sans-serif",
+};
+
+const hero: CSSProperties = {
+  position: "relative",
+  height: "90vh",
+  overflow: "hidden",
+};
+
+const heroImg: CSSProperties = {
+  objectFit: "cover",
+  transition: "transform 0.4s ease",
+};
+
+const overlay: CSSProperties = {
+  position: "absolute",
+  inset: 0,
+  background: "linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 100%)",
+};
+
+const heroContent: CSSProperties = {
+  position: "relative",
+  zIndex: 2,
+  color: "#fff",
+  textAlign: "center",
+  top: "50%",
+  transform: "translateY(-50%)",
+};
+
+const title: CSSProperties = {
+  fontSize: "52px",
+  textShadow: "0 4px 30px rgba(0,0,0,0.8)",
+};
+
+const subtitle: CSSProperties = {
+  marginTop: "20px",
+  textShadow: "0 2px 20px rgba(0,0,0,0.7)",
+};
+
+const btnPrimary: CSSProperties = {
+  marginTop: "30px",
+  background: "#22c55e",
+  color: "#fff",
+  padding: "14px 28px",
+  borderRadius: "12px",
+  display: "inline-block",
+  textDecoration: "none",
+  fontWeight: "600",
+};
+
+const proofSection: CSSProperties = {
+  background: "#0f172a",
+  padding: "60px 0",
+  width: "100%",
+};
+
+const proofContainer: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "repeat(3, 1fr)",
+  maxWidth: "1200px",
+  margin: "0 auto",
+  gap: "40px",
+  padding: "0 20px",
+};
+
+const proofCard: CSSProperties = {
+  color: "#fff",
+  textAlign: "center",
+};
+
+const proofIcon: CSSProperties = {
+  fontSize: "30px",
+};
+
+const proofNumber: CSSProperties = {
+  fontSize: "24px",
+};
+
+const proofText: CSSProperties = {
+  color: "#cbd5f5",
+};
+
+const container: CSSProperties = {
   maxWidth: "1100px",
   margin: "0 auto",
-  padding: "40px 20px",
+  padding: "100px 20px",
 };
 
-const highlight = {
-  fontWeight: "bold",
-  fontSize: "18px",
+const priceBox: CSSProperties = {
+  background: "#f8fafc",
+  padding: "60px",
+  borderRadius: "20px",
+  textAlign: "center",
 };
 
-const btn = {
-  display: "inline-block",
-  background: "#25D366",
+const highlightSection: CSSProperties = {
+  background: "#0f172a",
+  padding: "140px 20px",
   color: "#fff",
-  padding: "16px 26px",
-  borderRadius: "10px",
-  fontWeight: "bold",
-  marginTop: "20px",
-  textDecoration: "none",
-  fontSize: "18px",
 };
 
-const btnSmall = {
-  display: "inline-block",
-  background: "#25D366",
-  color: "#fff",
-  padding: "12px 20px",
-  borderRadius: "8px",
-  fontWeight: "bold",
-  marginTop: "10px",
-  textDecoration: "none",
-};
-
-const grid = {
+const highlightContainer: CSSProperties = {
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gap: "15px",
-  marginTop: "20px",
+  gridTemplateColumns: "1fr 1.4fr",
+  gap: "60px",
+  maxWidth: "1300px",
+  margin: "0 auto",
+  alignItems: "center",
 };
 
-const card = {
-  padding: "15px",
-  border: "1px solid #ddd",
+const highlightTitle: CSSProperties = {
+  fontSize: "34px",
+};
+
+const highlightDesc: CSSProperties = {
+  marginTop: "10px",
+};
+
+const highlightList: CSSProperties = {
+  marginTop: "20px",
+  lineHeight: "2",
+};
+
+const imageWrapper: CSSProperties = {
+  display: "flex",
+  justifyContent: "center",
+};
+
+const highlightImage: CSSProperties = {
+  borderRadius: "28px",
+  width: "100%",
+  maxWidth: "700px",
+  height: "auto",
+  boxShadow: "0 40px 100px rgba(0,0,0,0.6)",
+};
+
+const grid: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "repeat(4, 1fr)",
+  gap: "20px",
+};
+
+const card: CSSProperties = {
+  padding: "20px",
+  border: "1px solid #eee",
   borderRadius: "10px",
-  background: "#fff",
+};
+
+const cta: CSSProperties = {
+  background: "#111",
+  color: "#fff",
+  textAlign: "center",
+  padding: "120px 20px",
+};
+
+const btnBig: CSSProperties = {
+  marginTop: "20px",
+  background: "#22c55e",
+  padding: "16px 30px",
+  borderRadius: "10px",
+  display: "inline-block",
+  textDecoration: "none",
 };
