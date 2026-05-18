@@ -1,4 +1,5 @@
-import "./globals.css";
+import './globals.css'
+import { GoogleTagManager } from '@next/third-parties/google'
 import Header from "@/components/Header";
 import ContactFooter from "@/components/ContactFooter";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -59,6 +60,8 @@ export default function RootLayout({
       </head>
 
       <body>
+        <GoogleTagManager gtmId="GTM-K78X8Q9Q" />
+        
         <Header />
         {children}
         <ContactFooter />
